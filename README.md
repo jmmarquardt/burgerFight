@@ -26,4 +26,3 @@ We have done multiple "eat the burger" web apps academically, and decided to gam
 * John-Mike Marquardt [Github](https://github.com/codemarq) | [jmmarquardt.com](https://www.jmmarquardt.com)  |  [LinkedIn]()
 * Mickey A. Ryan  [Github](https://github.com/MARyan87)  |  [Website](https://michael-ryan-portfolio.herokuapp.com/assignment2/index.html)  |  [LinkedIn](https://www.linkedin.com/in/mickey-ryan-597915a0)
 * Ryan Osterman  [Github](https://github.com/ryanosterman10)  |  [Website]()  |  [LinkedIn](https://www.linkedin.com/in/ryanosterman10)
-* Matt T. Johnson  [Github](https://github.com/matt-t-johnson)  |  [Website]()  |  [LinkedIn](https://www.linkedin.com/in/matthewtjohnson1)
