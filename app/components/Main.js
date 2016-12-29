@@ -18,7 +18,7 @@ var Main = React.createClass({
           <h1 className="text-center">Burger Fight</h1>
         </section>
         <section className="row">
-          <section className="col-md-8 col-offset-2 game-area">
+          <section className="col-md-8 col-md-offset-2 game-area">
             <Gamescreen />
           </section>
         </section>
