@@ -1,9 +1,12 @@
-var React  = require("react");
-    
+var React  = require("react"),
+    gameLogic = require("./../js/game.js");
+
 var Gamescreen = React.createClass({
 
   componentDidMount: function() {
     console.log("component mounted");
+    console.log(gameLogic);
+    gameLogic.Game.start();
   },
 
   componentDidUpdate: function() {
@@ -12,7 +15,7 @@ var Gamescreen = React.createClass({
 
   render: function() {
     return (
-      <canvas></canvas>
+      <div id="game"></div>
     );
   }
 });

@@ -1,0 +1,7 @@
+html{
+	background-color: black;
+}
+#game {
+	background-image: url('../img/top-view-roundabout-vector.jpg');
+	opacity: .5;
+}
