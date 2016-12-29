@@ -2,7 +2,7 @@
 2D HTML5 Canvas game where Ronald McDonald and the Burger King force each other to eat their burgers.
 
 ## Screenshot
-![ScreenShot](./public/assets/img/giphy-tumblr.gif) ![ScreenShot](./public/assets/img/puking_ronald_1.gif)
+![ScreenShot](./public/assets/img/giphy-tumblr.gif) 
 
 ## Why?
 We have done multiple "eat the burger" web apps academically, and decided to gamify this exercise in order to explore new technologies and incorporate all we have learned.
