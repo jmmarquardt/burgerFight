@@ -2,16 +2,16 @@
 
 {
 	"filename": "ronald_down_throw.png",
-	"frame": {"x":1,"y":121,"w":180,"h":76},
+	"frame": {"x":425,"y":81,"w":212,"h":38},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":0,"w":180,"h":76},
-	"sourceSize": {"w":192,"h":76},
+	"spriteSourceSize": {"x":6,"y":0,"w":212,"h":38},
+	"sourceSize": {"w":224,"h":38},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "ronald_down_walk.png",
-	"frame": {"x":1,"y":1,"w":372,"h":38},
+	"frame": {"x":407,"y":1,"w":372,"h":38},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":6,"y":0,"w":372,"h":38},
@@ -19,8 +19,17 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
+	"filename": "ronald_left_throw.png",
+	"frame": {"x":428,"y":41,"w":144,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":0,"w":144,"h":38},
+	"sourceSize": {"w":160,"h":38},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
 	"filename": "ronald_left_walk.png",
-	"frame": {"x":1,"y":41,"w":243,"h":38},
+	"frame": {"x":183,"y":41,"w":243,"h":38},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":7,"y":0,"w":243,"h":38},
@@ -28,8 +37,17 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
+	"filename": "ronald_right_throw.png",
+	"frame": {"x":574,"y":41,"w":144,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":0,"w":144,"h":38},
+	"sourceSize": {"w":160,"h":38},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
 	"filename": "ronald_right_walk.png",
-	"frame": {"x":246,"y":41,"w":240,"h":38},
+	"frame": {"x":183,"y":81,"w":240,"h":38},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":9,"y":0,"w":240,"h":38},
@@ -38,7 +56,7 @@
 },
 {
 	"filename": "ronald_up_throw.png",
-	"frame": {"x":183,"y":121,"w":180,"h":76},
+	"frame": {"x":1,"y":41,"w":180,"h":76},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":6,"y":0,"w":180,"h":76},
@@ -47,7 +65,7 @@
 },
 {
 	"filename": "ronald_up_walk.png",
-	"frame": {"x":1,"y":81,"w":404,"h":38},
+	"frame": {"x":1,"y":1,"w":404,"h":38},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":6,"y":0,"w":404,"h":38},
@@ -59,8 +77,8 @@
 	"version": "1.0",
 	"image": "ronald.png",
 	"format": "RGBA8888",
-	"size": {"w":487,"h":198},
+	"size": {"w":780,"h":120},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:5b5cd94e2d5b8b17243ed4820764f43c:8af1de15e21dda40c4c87d4e0569b576:1223fc929221d0bd09d1318fb9380ec0$"
+	"smartupdate": "$TexturePacker:SmartUpdate:eac5a6945141056dffd84f7f1e022f70:5308bf635ff632ff6acb436f0ab6082d:1223fc929221d0bd09d1318fb9380ec0$"
 }
 }
