@@ -1,0 +1,66 @@
+{"frames": [
+
+{
+	"filename": "ronald_down_throw.png",
+	"frame": {"x":1,"y":121,"w":180,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":0,"w":180,"h":76},
+	"sourceSize": {"w":192,"h":76},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "ronald_down_walk.png",
+	"frame": {"x":1,"y":1,"w":372,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":0,"w":372,"h":38},
+	"sourceSize": {"w":384,"h":38},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "ronald_left_walk.png",
+	"frame": {"x":1,"y":41,"w":243,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":0,"w":243,"h":38},
+	"sourceSize": {"w":256,"h":38},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "ronald_right_walk.png",
+	"frame": {"x":246,"y":41,"w":240,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":0,"w":240,"h":38},
+	"sourceSize": {"w":256,"h":38},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "ronald_up_throw.png",
+	"frame": {"x":183,"y":121,"w":180,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":0,"w":180,"h":76},
+	"sourceSize": {"w":192,"h":76},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "ronald_up_walk.png",
+	"frame": {"x":1,"y":81,"w":404,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":0,"w":404,"h":38},
+	"sourceSize": {"w":416,"h":38},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "ronald.png",
+	"format": "RGBA8888",
+	"size": {"w":487,"h":198},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:5b5cd94e2d5b8b17243ed4820764f43c:8af1de15e21dda40c4c87d4e0569b576:1223fc929221d0bd09d1318fb9380ec0$"
+}
+}
