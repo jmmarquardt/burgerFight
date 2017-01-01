@@ -4,8 +4,6 @@ var React  = require("react"),
 var Gamescreen = React.createClass({
 
   componentDidMount: function() {
-    console.log("component mounted");
-    console.log(gameLogic);
     gameLogic.Game.start();
   },
 
