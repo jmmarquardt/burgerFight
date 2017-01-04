@@ -78,7 +78,38 @@ Crafty.c('Player1', {
         if (this.hit('Solid'))
           this[evt.axis] = evt.oldValue;
       })
-      .bind()
+      .bind(
+      		"KeyDown",
+					function( e )
+					{
+						if ( e.key == Crafty.keys[ "X" ] )
+						{
+													
+							var bulletX = this.x + 7;
+							var bulletY = this.y;
+							
+							Crafty.e( "Bullet, 2D, DOM, Color, Collision, Tween" )
+								.attr(
+									{
+										x:bulletX,
+										y:bulletY,
+										w:6,
+										h:6,
+										speed:10
+									}
+								)
+								.bind( 
+									"explode",
+									function()
+									{
+										this.destroy();
+									}
+								)
+								.color( "#bf2121" )
+								.tween( { y:-20 }, 140 );
+						}
+					}
+      	)
       .multiway(100,{
           W: -90, S: 90, D: 0, A: 180
 	  });
@@ -122,7 +153,39 @@ Crafty.c('Player2', {
         if (this.hit('Solid'))
           this[evt.axis] = evt.oldValue;
       })
-	  .bind()
+      // firing bullets
+	  .bind(
+	  		"KeyDown",
+					function( e )
+					{
+						if ( e.key == Crafty.keys[ "SPACE" ] )
+						{
+													
+							var bulletX = this.x + 7;
+							var bulletY = this.y;
+							
+							Crafty.e( "Bullet, 2D, DOM, Color, Collision, Tween" )
+								.attr(
+									{
+										x:bulletX,
+										y:bulletY,
+										w:6,
+										h:6,
+										speed:10
+									}
+								)
+								.bind( 
+									"explode",
+									function()
+									{
+										this.destroy();
+									}
+								)
+								.color( "#bf2121" )
+								.tween( { y:-20 }, 140 );
+						}
+					}
+	  	)
       .multiway(100,{
       	UP_ARROW: -90, DOWN_ARROW: 90, RIGHT_ARROW: 0, LEFT_ARROW: 180});
   }
