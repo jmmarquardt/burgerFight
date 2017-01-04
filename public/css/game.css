@@ -2,6 +2,6 @@ body{
 	background-color: black;
 }
 #game {
-	background-image: url('../img/top-view-roundabout-vector.jpg');
+	/*background-image: url('../img/top-view-roundabout-vector.jpg');*/
 	margin: 0 auto;
 }
