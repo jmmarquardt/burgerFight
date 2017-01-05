@@ -1,3 +1,7 @@
+var assets = require('./assetObj.js');
+var Ronald = assets.Ronald;
+var Sprites = assets.sprites;
+
 exports.Game = {
 	start: function() {
 	    Crafty.init(this.width(), this.height(), document.getElementById("game"));
@@ -68,44 +72,6 @@ Crafty.c('Trees', {
   },
 });
 
-// sprite sheet arrays
-var Ronald = {
-	move: {
-		up: [
-			[32, 988], [0, 1026], [32,1026], [0,1064],
-			[32, 1064], [0,1102], [32, 1102], [0,1140],
-			[32,1140], [0,1178], [32,1178], [0,1216],
-			[32,1216]
-		],
-		down: [
-			[32,152], [0,190], [32,190], [0,228],
-			[32,228], [0,266], [32,266], [0,304],
-			[32,304], [0,342], [32,342], [0,380]
-		],
-		right: [
-			[32, 722], [0,760], [32,760], [0,798],
-			[32,798], [0,836], [32,836], [0,874]
-		],
-		left: [
-			[0, 494], [32,494], [0,532], [32,532],
-			[0,570], [32,570], [0,608], [32,608]
-		]
-	// },
-	// throw: {
-	// 	up: [
-	//
-	// 	],
-	// 	down: [
-	//
-	// 	],
-	// 	right: [
-	//
-	// 	],
-	// 	left: [
-	//
-	// 	]
-	}
-};
 // player 1 object
 Crafty.c('Player1', {
   init: function() {
@@ -118,11 +84,11 @@ Crafty.c('Player1', {
       .multiway(100,{
           W: -90, S: 90, D: 0, A: 180
 	  })
-	  // These next lines define our four animations
+	 // These next lines define our four animations
 	 //  each call to .animate specifies:
 	 //  - the name of the animation
 	 //  - the array coordinates within the sprite
-	 //     map at which the animation set
+	 //  map at which the animation set
 	 .reel('RonaldMovingUp', 600, Ronald.move.up)
 	 .reel('RonaldMovingRight', 600, Ronald.move.right)
 	 .reel('RonaldMovingDown', 600, Ronald.move.down)
@@ -161,7 +127,7 @@ Crafty.c('Player2', {
   }
 });
 
-// loading scene
+// "loading" scene-loads initial game grid
 Crafty.scene('Loading', function(){
 
   Crafty.e('2D, DOM, Text')
@@ -169,14 +135,6 @@ Crafty.scene('Loading', function(){
     .attr({ x: 0, y: exports.Game.height()/2 - 24, w: exports.Game.width()})
   	.css({"text-align": "center"})
   	.css({"font-size": "50px"});
-
-	  Crafty.sprite(1,"/assets/img/sprites/spritesheet.png", {
-		  spr_ronald: [0,38,32,38],
-		  spr_king: [16,0,32,38],
-		  spr_bush: [48, 0, 16, 16],
-		  spr_tree: [0,1254, 16, 16]
-	  });
-
 	// add game audio assets later RIGHT HERE
 	// Crafty.audio.add(['']);
 // });
@@ -185,9 +143,10 @@ Crafty.scene('Loading', function(){
   Crafty.scene("Main");
 });
 
+// "Main" Scene loads players
 Crafty.scene("Main", function () {
 		Crafty.e('Player1').at(5, 5);
-	    Crafty.e('Player2').at(15, 5);
+    Crafty.e('Player2').at(15, 5);
 
 		for (var x = 0; x < exports.Game.map_grid.width; x++) {
 	      for (var y = 0; y < exports.Game.map_grid.height; y++) {
@@ -199,4 +158,12 @@ Crafty.scene("Main", function () {
 	        }
 	      }
     	}
+});
+
+// Sprites declared
+Crafty.sprite(1,"/assets/img/sprites/spritesheet.png", {
+	spr_ronald: Sprites.spr_ronald,
+	spr_king: Sprites.spr_king,
+	spr_bush: Sprites.spr_bush,
+	spr_tree: Sprites.spr_tree
 });
