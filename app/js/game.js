@@ -117,14 +117,42 @@ Crafty.c('Player1', {
 });
 
 // player 2
-Crafty.c('Player2', {
+var player2 = Crafty.c('Player2', {
   init: function() {
     this.requires('Actor, Solid, Multiway, spr_king, Collision, SpriteAnimation')
     .bind('Moved', function (evt) {
-      if (this.hit('Solid'))
+      if (this.hit('Solid')) {
         this[evt.axis] = evt.oldValue;
+      }
     })
-	  .bind()
+	.bind( 
+		"KeyDown",
+		function(e) {
+
+			if (e.key == Crafty.keys[ "SPACE" ]) {
+				
+				var burgerX = this.x + 14;
+				var burgerY = this.y;
+				
+				Crafty.e("Actor, Color, Collision, Tween")
+					.attr({
+							x:burgerX,
+							y:burgerY,
+							w:6,
+							h:6
+						})
+					.onHit('Solid', function (evt) {
+						this.destroy();
+						
+						if (evt[0].type === "SAT") {
+							evt[0].obj.destroy();
+						}
+					}) 
+					.color( "#bf2121" )
+					.tween(getTweenDirection(this), 140);
+			}
+		}
+	)
     .multiway(100,{
 			UP_ARROW: -90,
 			DOWN_ARROW: 90,
@@ -162,6 +190,38 @@ Crafty.c('Player2', {
 		});
   }
 });
+
+function getTweenDirection (player) {
+	console.log(player);
+	console.log("active directions: ", player._activeDirections);
+	console.log("player x-y: ", player._x + "-" + player._y);
+	console.log("oldValue: ", player.__movedEvent.oldValue);
+	var dir = player._activeDirections;
+	
+
+		if(dir[0] === 1 && dir[90] === 1) {
+			console.log("downright");
+		} else if(dir[90] === 1 && dir[180] === 1) {
+			console.log("downleft");
+		} else if(dir[90] === 1) {
+			console.log("down");
+		} else if(dir[180] === 1 && dir[-90] === 1) {
+			console.log("upleft");
+			return {x:-20, y:-20};
+		} else if(dir[0] === 1 && dir[-90] === 1) {
+			console.log("upright");
+			return {x:200, y:-20};
+		} else if(dir[-90] === 1) {
+			console.log("up");
+			return {y:-20};
+		} else if(dir[180] === 1) {
+			console.log("left");
+		} else if(dir[0] === 1) {
+			console.log("right");
+		}
+	
+	return {y:-20};
+}
 
 // "loading" scene-loads initial game grid
 Crafty.scene('Loading', function(){
