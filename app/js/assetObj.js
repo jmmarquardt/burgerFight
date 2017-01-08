@@ -3,7 +3,7 @@
 // spritesheet.json
 var spritesheet = require('../../public/assets/img/sprites/spritesheet.json'),
   bushSprite = spritesheet.frames[2],
-  // ronaldSprite = spritesheet.frames[3],
+  ronaldSprite = spritesheet.frames[3],
   kingSprite = spritesheet.frames[4],
   burgerSprite = spritesheet.frames[0],
   treeSprite = spritesheet.frames[3],
