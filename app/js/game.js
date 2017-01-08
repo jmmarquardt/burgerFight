@@ -7,7 +7,7 @@ var assets = require('./assetObj.js'),
 exports.Game = {
 	start: function() {
     Crafty.init(this.width(), this.height(), document.getElementById("game"));
-		Crafty.background('url(/assets/img/sprites/ground-2.png)')
+		Crafty.background('url(/assets/img/sprites/ground-1.png)')
 	 	Crafty.scene("Loading");
   },
   map_grid: {
@@ -80,30 +80,32 @@ var player1 = Crafty.c('Player1', {
         if (this.hit('Solid'))
           this[evt.axis] = evt.oldValue;
       })
-      .bind( 
+      .bind(
 		"KeyDown",
 		function(e) {
 			if (e.key == Crafty.keys["F"]) {
 				console.log(getTweenDirection(this));
 				var burgerX = getTweenDirection(this)[1].x;
 				var burgerY = getTweenDirection(this)[1].y;
-				
-				Crafty.e("Actor, Color, Collision, Tween")
+				// var burgerX = this.x +100;
+				// var burgerY = this.y +100;
+
+				Crafty.e("Actor, spr_burger, Collision, Tween")
 					.attr({
 							x:burgerX,
 							y:burgerY,
-							w:6,
-							h:6
+							w:10,
+							h:10
 						})
 					.onHit('Solid', function (evt) {
 						this.destroy();
-						
+
 						if (evt[0].type === "SAT") {
 							evt[0].obj.destroy();
 						}
-					}) 
-					.color( "#bf2121" )
-					.tween(getTweenDirection(this)[0], 250);
+					})
+					// .color( "#bf2121" )
+					.tween(getTweenDirection(this)[0], 400);
 			}
 		}
 	  )
@@ -160,13 +162,15 @@ var player2 = Crafty.c('Player2', {
 				console.log(getTweenDirection(this));
 				var burgerX = getTweenDirection(this)[1].x;
 				var burgerY = getTweenDirection(this)[1].y;
-				
-				Crafty.e("Actor, Color, Collision, Tween")
+				// var burgerX = this.x +100;
+				// var burgerY = this.y +100;
+
+				Crafty.e("Actor, spr_burger, Collision, Tween")
 					.attr({
 							x:burgerX,
 							y:burgerY,
-							w:6,
-							h:6
+							w:10,
+							h:10
 						})
 					.onHit('Solid', function (evt) {
 						this.destroy();
@@ -175,8 +179,8 @@ var player2 = Crafty.c('Player2', {
 							evt[0].obj.destroy();
 						}
 					})
-					.color( "#bf2121" )
-					.tween(getTweenDirection(this)[0], 250);
+					// .color( "#bf2121" )
+					.tween(getTweenDirection(this)[0], 400);
 			}
 		}
 	)
@@ -223,41 +227,41 @@ function getTweenDirection (player) {
 	var dir = player._activeDirections,
 		fromTop = {x:player.x + 14, y:player.y},
 		fromBottom = {x:player.x + 14, y:player.y + 50};
-	
+
 		if(dir[0] === 1 && dir[90] === 1) { // down and right
 
 			return [{x: player._x + 300, y: player._y + 300}, fromTop];
-			
+
 		} else if(dir[90] === 1 && dir[180] === 1) { // down and left
 
 			return [{x: player._x - 300, y: player._y + 300}, fromTop];
-			
+
 		} else if(dir[90] === 1) { // down
-			
+
 			return [{y: player._y + 300}, fromBottom];
-		
+
 		} else if(dir[180] === 1 && dir[-90] === 1) { // up and left
-			
+
 			return [{x: player._x - 300, y: player._y - 300}, fromTop];
-		
+
 		} else if(dir[0] === 1 && dir[-90] === 1) { // up and right
-			
+
 			return [{x: player._x + 300, y: player._y - 300}, fromTop];
-		
+
 		} else if(dir[-90] === 1) { // up
-			
+
 			return [{y: player._y - 300}, fromTop];
-		
+
 		} else if(dir[180] === 1) { // left
-			
+
 			return [{x: player._x - 300}, fromTop];
-		
+
 		} else if(dir[0] === 1) { // right
-			
+
 			return [{x: player._x + 300}, fromTop];
-		
+
 		} else { // default
-			
+
 			return [{y: player._y + 300}, fromTop];
 		}
 }
