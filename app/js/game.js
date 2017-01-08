@@ -125,15 +125,15 @@ var player2 = Crafty.c('Player2', {
         this[evt.axis] = evt.oldValue;
       }
     })
-	.bind( 
+	.bind(
 		"KeyDown",
 		function(e) {
 
 			if (e.key == Crafty.keys[ "SPACE" ]) {
-				
+
 				var burgerX = this.x + 14;
 				var burgerY = this.y;
-				
+
 				Crafty.e("Actor, Color, Collision, Tween")
 					.attr({
 							x:burgerX,
@@ -143,11 +143,11 @@ var player2 = Crafty.c('Player2', {
 						})
 					.onHit('Solid', function (evt) {
 						this.destroy();
-						
+
 						if (evt[0].type === "SAT") {
 							evt[0].obj.destroy();
 						}
-					}) 
+					})
 					.color( "#bf2121" )
 					.tween(getTweenDirection(this), 140);
 			}
@@ -197,7 +197,7 @@ function getTweenDirection (player) {
 	console.log("player x-y: ", player._x + "-" + player._y);
 	console.log("oldValue: ", player.__movedEvent.oldValue);
 	var dir = player._activeDirections;
-	
+
 
 		if(dir[0] === 1 && dir[90] === 1) {
 			console.log("downright");
@@ -219,7 +219,7 @@ function getTweenDirection (player) {
 		} else if(dir[0] === 1) {
 			console.log("right");
 		}
-	
+
 	return {y:-20};
 }
 
@@ -262,5 +262,6 @@ Crafty.sprite(1,"/assets/img/sprites/spritesheet.png", {
 	spr_king: Sprites.spr_king,
 	spr_bush: Sprites.spr_bush,
 	spr_tree: Sprites.spr_tree,
-	spr_ground: Sprites.spr_ground
+	spr_ground: Sprites.spr_ground,
+	spr_burger: Sprites.spr_burger
 });
