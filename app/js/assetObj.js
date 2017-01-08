@@ -88,6 +88,7 @@ module.exports = {
       spr_king: [kingSprite.frame.x, kingSprite.frame.y, kingSprite.frame.w, kingSprite.frame.h],
       spr_bush: [bushSprite.frame.x, bushSprite.frame.y, bushSprite.frame.w, bushSprite.frame.h],
   	  spr_tree: [treeSprite.frame.x, treeSprite.frame.y, treeSprite.frame.w, treeSprite.frame.h],
-      spr_ground: [groundSprite.frame.x, groundSprite.frame.y, groundSprite.frame.w, groundSprite.frame.h]
+      spr_ground: [groundSprite.frame.x, groundSprite.frame.y, groundSprite.frame.w, groundSprite.frame.h],
+      spr_burger: [burgerSprite.x, burgerSprite.y, burgerSprite.w, burgerSprite.h]
   }
 };
