@@ -85,9 +85,27 @@ module.exports = {
                 evt[0].obj.destroy();
               }
             })
+<<<<<<< HEAD
             .tween(tween.getTweenDirection(this)[0], 1000);
         }
       })
+=======
+          .onHit('Solid', function (evt) {
+            
+            if (evt[0].obj._element.className.indexOf("spr_ronald") === -1) {
+              this.destroy();
+            }
+            
+            if (evt[0].type === "SAT" && evt[0].obj._element.className.indexOf("spr_ronald") === -1) {
+              evt[0].obj.destroy();
+              Crafty.scene("VictoryRonald");
+            }
+          })
+          .tween(tween.getTweenDirection(this)[0], 1500);
+      }
+    }
+    )
+>>>>>>> code cleanup
       .multiway(100,{
           W: -90, S: 90, D: 0, A: 180
       })
@@ -156,6 +174,7 @@ module.exports = {
                   Crafty.audio.play("splatSound");
                 }
 
+<<<<<<< HEAD
                 if (evt[0].type === "SAT" && evt[0].obj._element.className.indexOf("spr_king") === -1) {
                   evt[0].obj.destroy();
                 }
@@ -199,6 +218,15 @@ module.exports = {
           this.pauseAnimation();
         }
       });
+=======
+            if (evt[0].type === "SAT" && evt[0].obj._element.className.indexOf("spr_king") === -1) {
+              evt[0].obj.destroy();
+              Crafty.scene("VictoryKing");
+            }
+          })
+          .tween(tween.getTweenDirection(this)[0], 1500);
+      }
+>>>>>>> code cleanup
     }
   })
 }
