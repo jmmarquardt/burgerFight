@@ -3,7 +3,7 @@
 // spritesheet.json
 var spritesheet = require('../../public/assets/img/sprites/spritesheet.json'),
   bushSprite = spritesheet.frames[2],
-  ronaldSprite = spritesheet.frames[3],
+  ronaldSprite = spritesheet.frames[44],
   kingSprite = spritesheet.frames[4],
   burgerSprite = spritesheet.frames[0],
   treeSprite = spritesheet.frames[3],
@@ -99,11 +99,17 @@ module.exports = {
   },
   // our static sprites
   sprites: {
-      spr_ronald: [32, 890, 32, 38],
+      spr_ronald: [ronaldSprite.frame.x, ronaldSprite.frame.y, ronaldSprite.frame.w, ronaldSprite.frame.h],
       spr_king: [kingSprite.frame.x, kingSprite.frame.y, kingSprite.frame.w, kingSprite.frame.h],
       spr_bush: [bushSprite.frame.x, bushSprite.frame.y, bushSprite.frame.w, bushSprite.frame.h],
   	  spr_tree: [treeSprite.frame.x, treeSprite.frame.y, treeSprite.frame.w, treeSprite.frame.h],
       spr_ground: [groundSprite.frame.x, groundSprite.frame.y, groundSprite.frame.w, groundSprite.frame.h],
       spr_burger: [burgerSprite.frame.x, burgerSprite.frame.y, burgerSprite.frame.w, burgerSprite.frame.h]
+  },
+  audio: {
+    walk_1: '/assets/sfx/person_walking_on_gravel.mp3',
+    walk_2: '../../public/assets/sfx/person_walks_through_leaves.mp3',
+    throw: '../../public/assets/sfx/tomahawk_axe_throw_whoosh.mp3',
+    splat: '../../public/assets/sfx/wet_gooey_liquid_splat.mp3'
   }
 };

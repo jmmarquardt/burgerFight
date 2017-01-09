@@ -44,9 +44,6 @@ Crafty.scene('Loading', function(){
     .attr({ x: 0, y: exports.Game.height()/2 - 24, w: exports.Game.width()})
   	.css({"text-align": "center"})
   	.css({"font-size": "50px"});
-	// add game audio assets later RIGHT HERE
-	// Crafty.audio.add(['']);
-// });
 
   // load scene "main"
   Crafty.scene("Main");
@@ -55,19 +52,19 @@ Crafty.scene('Loading', function(){
 // "Main" Scene loads players
 Crafty.scene("Main", function () {
 		Crafty.e('Player1').at(5, 5);
-    	Crafty.e('Player2').at(15, 5);
+  	Crafty.e('Player2').at(15, 5);
 
 		for (var x = 0; x < exports.Game.map_grid.width; x++) {
-	      for (var y = 0; y < exports.Game.map_grid.height; y++) {
-			var at_edge = x === 0 || x === exports.Game.map_grid.width - 1 || y === 0 || y === exports.Game.map_grid.height - 1;
+      for (var y = 0; y < exports.Game.map_grid.height; y++) {
+				var at_edge = x === 0 || x === exports.Game.map_grid.width - 1 || y === 0 || y === exports.Game.map_grid.height - 1;
 
-	        if (at_edge) {
-	        	Crafty.e("Trees").at(x, y);
-	        } else if (Math.random() < 0.03) {
-	          Crafty.e("Bushes").at(x, y);
-	        }
+	      if (at_edge) {
+	      	Crafty.e("Trees").at(x, y);
+	      } else if (Math.random() < 0.03) {
+	        Crafty.e("Bushes").at(x, y);
 	      }
-	  	}
+	    }
+	  }
 });
 
 // Sprites declared
@@ -79,3 +76,18 @@ Crafty.sprite(1,"/assets/img/sprites/spritesheet.png", {
 	spr_ground: Sprites.spr_ground,
 	spr_burger: Sprites.spr_burger
 });
+
+// // load audio
+// Crafty.audio.add({
+// 	walkSound_1: assets.audio.walk_1,
+// 	walkSound_2: assets.audio.walk_2,
+// 	throwSound: assets.audio.throw,
+// 	splatSound: assets.audio.splat
+// });
+
+// Game Audio loaded
+Crafty.audio.add("walkSound_1", "/assets/sfx/person_walking_on_gravel.mp3");
+Crafty.audio.add("walkSound_2", "/assets/sfx/person_walks_through_leaves.mp3");
+Crafty.audio.add("throwSound", "/assets/sfx/tomahawk_axe_throw_whoosh.mp3");
+Crafty.audio.add("splatSound", "/assets/sfx/wet_gooey_liquid_splat.mp3");
+// Crafty.audio.add("")
