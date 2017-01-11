@@ -112,7 +112,7 @@ Crafty.scene("Main", function () {
 		if (!occupied[randomX][randomY]) {
 			Crafty.e("WeaponDrop").at(randomX,randomY);
 		}
-	},15000);
+	},1000);
 });
 
 // // load audio
