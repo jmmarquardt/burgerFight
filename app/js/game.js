@@ -3,6 +3,7 @@ var assets = require('./assetObj.js'),
 	Ronald = assets.Ronald,
 	King = assets.King,
 	Sprites = assets.sprites,
+	sfx = assets.audio,
 	Actor = components.Actor,
 	Bushes = components.Bushes,
 	Trees = components.Trees,
@@ -35,7 +36,6 @@ exports.Game = {
 };
 
 
-
 // "loading" scene-loads initial game grid
 Crafty.scene('Loading', function(){
 
@@ -43,25 +43,25 @@ Crafty.scene('Loading', function(){
     .text('Loading...')
     .attr({ x: 0, y: exports.Game.height()/2 - 24, w: exports.Game.width()})
   	.css({"text-align": "center"})
+  	.css({"font-size": "50px"});
 
-  	.css({"font-size": "50px"})
-  
-		// add game audio assets later RIGHT HERE
-		// Crafty.audio.add(['']);
+  // Game Audio loaded and declared
+  Crafty.audio.add("throwSound", sfx.throw);
+  Crafty.audio.add("splatSound", sfx.splat);
+	Crafty.audio.add("dropSound", sfx.drop);
+	Crafty.audio.add("powerUpSound", sfx.powerUp);
+	Crafty.audio.add("backgroundMusic", sfx.music);
+	Crafty.audio.add("ronaldLaugh", sfx.laugh);
+	Crafty.audio.add("hitSound", sfx.hit);
 
-  // Game Audio loaded
-  Crafty.audio.add("walkSound_1", "/assets/sfx/person_walking_on_gravel.mp3");
-  Crafty.audio.add("walkSound_2", "/assets/sfx/person_walks_through_leaves.mp3");
-  Crafty.audio.add("throwSound", "/assets/sfx/tomahawk_axe_throw_whoosh.mp3");
-  Crafty.audio.add("splatSound", "/assets/sfx/wet_gooey_liquid_splat.mp3");		
-  
+	// static game sprites loaded and declared
   Crafty.sprite(1,"/assets/img/sprites/spritesheet.png", {
     spr_ronald: Sprites.spr_ronald,
-	spr_king: Sprites.spr_king,
-	spr_bush: Sprites.spr_bush,
-	spr_tree: Sprites.spr_tree,
-	spr_ground: Sprites.spr_ground,
-	spr_burger: Sprites.spr_burger
+		spr_king: Sprites.spr_king,
+		spr_bush: Sprites.spr_bush,
+		spr_tree: Sprites.spr_tree,
+		spr_ground: Sprites.spr_ground,
+		spr_burger: Sprites.spr_burger
   });
 
   // load scene "main"
@@ -70,36 +70,38 @@ Crafty.scene('Loading', function(){
 
 Crafty.scene("Main", function () {
 	var occupied = new Array(exports.Game.map_grid.width);
-  	
-  	for (var i = 0; i < exports.Game.map_grid.width; i++) {
-	    
-	    occupied[i] = new Array(exports.Game.map_grid.height);
-	    
-	    for (var j = 0; j < exports.Game.map_grid.height; j++) {
-	      	occupied[i][j] = false;
-    	}
-	}
-	
-	for (var x = 0; x < exports.Game.map_grid.width; x++) {
-      for (var y = 0; y < exports.Game.map_grid.height; y++) {
-		var at_edge = x === 0 || x === exports.Game.map_grid.width - 1 || y === 0 || y === exports.Game.map_grid.height - 1;
-        
-        if (at_edge) {
-        	Crafty.e("Trees").at(x, y);
-        	occupied[x][y] = true;
-        } else if (Math.random() < 0.05 && !occupied[x][y]) {
-        	if (x < 4 || y < 4) {
-          		Crafty.e("Bushes").at(x, y);
-        	} else if ((x > 6 && y > 6) && (x < 28 && y < 28)) {
-        		Crafty.e("Bushes").at(x, y);
-        	} else if (x > 32 || y > 32) {
-        		Crafty.e("Bushes").at(x, y);
-        	}
-        }
-      }
+	Crafty.audio.play('backgroundMusic');
+
+	for (var i = 0; i < exports.Game.map_grid.width; i++) {
+
+    occupied[i] = new Array(exports.Game.map_grid.height);
+
+    for (var j = 0; j < exports.Game.map_grid.height; j++) {
+      	occupied[i][j] = false;
   	}
-  	// Spawn player 1
-  	this.player1 = Crafty.e('Player1').at(5, 5);
+	}
+
+	for (var x = 0; x < exports.Game.map_grid.width; x++) {
+    for (var y = 0; y < exports.Game.map_grid.height; y++) {
+
+			var at_edge = x === 0 || x === exports.Game.map_grid.width - 1 || y === 0 || y === exports.Game.map_grid.height - 1;
+
+      if (at_edge) {
+      	Crafty.e("Trees").at(x, y);
+      	occupied[x][y] = true;
+      } else if (Math.random() < 0.05 && !occupied[x][y]) {
+      	if (x < 4 || y < 4) {
+        		Crafty.e("Bushes").at(x, y);
+      	} else if ((x > 6 && y > 6) && (x < 28 && y < 28)) {
+      		Crafty.e("Bushes").at(x, y);
+      	} else if (x > 32 || y > 32) {
+      		Crafty.e("Bushes").at(x, y);
+      	}
+      }
+    }
+	}
+	// Spawn player 1
+	this.player1 = Crafty.e('Player1').at(5, 5);
 	occupied[this.player1.at().x][this.player1.at().y] = true;
 	// Spawn player 2
 	this.player2 = Crafty.e('Player2').at(30, 30);
@@ -108,23 +110,12 @@ Crafty.scene("Main", function () {
 	setInterval(function() {
 		var randomX = Math.round(Math.random() * 14) + 10;
 		var randomY = Math.round(Math.random() * 14) + 10;
-		
+
 		if (!occupied[randomX][randomY]) {
 			Crafty.e("WeaponDrop").at(randomX,randomY);
 		}
 	},1000);
 });
-
-// // load audio
-// Crafty.audio.add({
-// 	walkSound_1: assets.audio.walk_1,
-// 	walkSound_2: assets.audio.walk_2,
-// 	throwSound: assets.audio.throw,
-// 	splatSound: assets.audio.splat
-// });
-
-
-// Crafty.audio.add("")
 
 // VICTORY SCENES
 Crafty.scene('VictoryRonald', function() {
@@ -140,7 +131,7 @@ Crafty.scene('VictoryRonald', function() {
 });
 
 Crafty.scene('VictoryKing', function() {
-  
+
   this.restart_game = this.bind('KeyDown', function() {
     Crafty.scene('Main');
   });
