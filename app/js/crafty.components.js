@@ -5,6 +5,10 @@ var Game = require('./game.js'),
     King = assets.King;
 
 module.exports = {
+  Player1Ammo: 10,
+  Player2Ammo: 10,
+  Player1Health: 3,
+  Player2Health: 3,
   Grid : Crafty.c('Grid', {
     init: function() {
       this.attr({
@@ -61,7 +65,7 @@ module.exports = {
       .bind(
       "KeyDown",
       function(e) {
-        if (e.key == Crafty.keys["F"]) {
+        if (e.key == Crafty.keys["F"] && module.exports.Player1Ammo > 0) {
           var burgerX = tween.getTweenDirection(this)[1].x;
           var burgerY = tween.getTweenDirection(this)[1].y;
           // play throw sound
@@ -82,12 +86,19 @@ module.exports = {
               }
 
               if (evt[0].type === "SAT" && evt[0].obj._element.className.indexOf("spr_ronald") === -1) {
-                evt[0].obj.destroy();
-                Crafty.scene("VictoryRonald");
+                module.exports.Player2Health--;
+                if (module.exports.Player2Health <= 0) {
+                  evt[0].obj.destroy();
+                  Crafty.scene("VictoryRonald");
+                  module.exports.Player1Ammo = 10;
+                  module.exports.Player2Ammo = 10;
+                }
               }
             })
             .tween(tween.getTweenDirection(this)[0], 1500);
-      }
+            module.exports.Player1Ammo--;
+            console.log(module.exports.Player1Ammo);
+        }
     }
     )
 
@@ -125,7 +136,7 @@ module.exports = {
       });
     }
   }),
-
+  
   // Player 2
   Player2 : Crafty.c('Player2', {
     init: function() {
@@ -139,8 +150,7 @@ module.exports = {
       .bind(
         "KeyDown",
         function(e) {
-
-          if (e.key == Crafty.keys["SPACE"]) {
+          if (e.key == Crafty.keys["SPACE"] && module.exports.Player2Ammo > 0) {
             var burgerX = tween.getTweenDirection(this)[1].x;
             var burgerY = tween.getTweenDirection(this)[1].y;
             // play throw sound
@@ -160,11 +170,17 @@ module.exports = {
                 }
 
                 if (evt[0].type === "SAT" && evt[0].obj._element.className.indexOf("spr_king") === -1) {
-                  evt[0].obj.destroy();
-                  Crafty.scene("VictoryKing");
+                  module.exports.Player1Health--;
+                  if (module.exports.Player1Health <= 0) {
+                    evt[0].obj.destroy();
+                    Crafty.scene("VictoryRonald");
+                    module.exports.Player1Ammo = 10;
+                    module.exports.Player2Ammo = 10;
+                  }
                 }
               })
               .tween(tween.getTweenDirection(this)[0], 1500);
+              module.exports.Player2Ammo--;
           }
         }
       )
@@ -203,6 +219,6 @@ module.exports = {
           this.pauseAnimation();
         }
       }); 
-    }    
+    }
   })
 }
