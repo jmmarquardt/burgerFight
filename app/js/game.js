@@ -69,14 +69,14 @@ Crafty.scene('Loading', function(){
 });
 
 Crafty.scene("Main", function () {
-	this.occupied = new Array(exports.Game.map_grid.width);
+	var occupied = new Array(exports.Game.map_grid.width);
   	
   	for (var i = 0; i < exports.Game.map_grid.width; i++) {
 	    
-	    this.occupied[i] = new Array(exports.Game.map_grid.height);
+	    occupied[i] = new Array(exports.Game.map_grid.height);
 	    
 	    for (var j = 0; j < exports.Game.map_grid.height; j++) {
-	      	this.occupied[i][j] = false;
+	      	occupied[i][j] = false;
     	}
 	}
 	
@@ -86,8 +86,8 @@ Crafty.scene("Main", function () {
         
         if (at_edge) {
         	Crafty.e("Trees").at(x, y);
-        	this.occupied[x][y] = true;
-        } else if (Math.random() < 0.05 && !this.occupied[x][y]) {
+        	occupied[x][y] = true;
+        } else if (Math.random() < 0.05 && !occupied[x][y]) {
         	if (x < 4 || y < 4) {
           		Crafty.e("Bushes").at(x, y);
         	} else if ((x > 6 && y > 6) && (x < 28 && y < 28)) {
@@ -100,10 +100,19 @@ Crafty.scene("Main", function () {
   	}
   	// Spawn player 1
   	this.player1 = Crafty.e('Player1').at(5, 5);
-	this.occupied[this.player1.at().x][this.player1.at().y] = true;
+	occupied[this.player1.at().x][this.player1.at().y] = true;
 	// Spawn player 2
 	this.player2 = Crafty.e('Player2').at(30, 30);
-	this.occupied[this.player2.at().x][this.player2.at().y] = true;
+	occupied[this.player2.at().x][this.player2.at().y] = true;
+
+	setInterval(function() {
+		var randomX = Math.round(Math.random() * 14) + 10;
+		var randomY = Math.round(Math.random() * 14) + 10;
+		
+		if (!occupied[randomX][randomY]) {
+			Crafty.e("WeaponDrop").at(randomX,randomY);
+		}
+	},15000);
 });
 
 // // load audio

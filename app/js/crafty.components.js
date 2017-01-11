@@ -53,6 +53,18 @@ module.exports = {
       this.requires('Actor, spr_tree, Solid');
     },
   }),
+  
+  // random drop test
+  RandomDrop : Crafty.c('WeaponDrop', {
+    init: function() {
+      this.requires('Actor, Color')
+          .attr({
+            w:15,
+            h:15
+          })
+          .color("rgb(0, 0, 0)");
+    }
+  }),
 
   // Player 1
   Player1 : Crafty.c('Player1', {
