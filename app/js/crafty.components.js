@@ -9,6 +9,8 @@ module.exports = {
   Player2Ammo: 10,
   Player1Health: 3,
   Player2Health: 3,
+  Player1PowerUp: false,
+  Player2PowerUp: false,
   Grid : Crafty.c('Grid', {
     init: function() {
       this.attr({
@@ -71,8 +73,16 @@ module.exports = {
     init: function() {
       this.requires('Actor, Solid, Multiway, spr_ronald, Collision, SpriteAnimation')
       .bind('Moved', function(evt){
-        if (this.hit('Solid'))
+        if (this.hit('Solid')) {
           this[evt.axis] = evt.oldValue;
+        }
+      })
+      .onHit('Actor', function(evt) {
+        if (evt[0].obj._element.className.indexOf("WeaponDrop") !== -1) {
+          module.exports.Player1PowerUp = true;
+          evt[0].obj.destroy();
+          console.log("POWERUP!!!");
+        }
       })
       .bind(
       "KeyDown",
@@ -157,6 +167,13 @@ module.exports = {
         // Crafty.audio.play('walkSound_1');
         if (this.hit('Solid')) {
           this[evt.axis] = evt.oldValue;
+        }
+      })
+      .onHit('Actor', function(evt) {
+        if (evt[0].obj._element.className.indexOf("WeaponDrop") !== -1) {
+          module.exports.Player2PowerUp = true;
+          evt[0].obj.destroy();
+          console.log("POWERUP!!!");
         }
       })
       .bind(
