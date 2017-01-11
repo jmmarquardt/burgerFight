@@ -48,6 +48,12 @@ Crafty.scene('Loading', function(){
   
 		// add game audio assets later RIGHT HERE
 		// Crafty.audio.add(['']);
+
+  // Game Audio loaded
+  Crafty.audio.add("walkSound_1", "/assets/sfx/person_walking_on_gravel.mp3");
+  Crafty.audio.add("walkSound_2", "/assets/sfx/person_walks_through_leaves.mp3");
+  Crafty.audio.add("throwSound", "/assets/sfx/tomahawk_axe_throw_whoosh.mp3");
+  Crafty.audio.add("splatSound", "/assets/sfx/wet_gooey_liquid_splat.mp3");		
   
   Crafty.sprite(1,"/assets/img/sprites/spritesheet.png", {
     spr_ronald: Sprites.spr_ronald,
@@ -108,11 +114,7 @@ Crafty.scene("Main", function () {
 // 	splatSound: assets.audio.splat
 // });
 
-// Game Audio loaded
-Crafty.audio.add("walkSound_1", "/assets/sfx/person_walking_on_gravel.mp3");
-Crafty.audio.add("walkSound_2", "/assets/sfx/person_walks_through_leaves.mp3");
-Crafty.audio.add("throwSound", "/assets/sfx/tomahawk_axe_throw_whoosh.mp3");
-Crafty.audio.add("splatSound", "/assets/sfx/wet_gooey_liquid_splat.mp3");
+
 // Crafty.audio.add("")
 
 // VICTORY SCENES
