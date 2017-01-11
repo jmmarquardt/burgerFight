@@ -22,14 +22,14 @@ module.exports = {
     at: function(x, y) {
       if (x === undefined && y === undefined) {
         return {
-  		  x: this.x/Game.Game.map_grid.tile.width,
-  		  y: this.y/Game.Game.map_grid.tile.height
-  	  }
+    		  x: this.x/Game.Game.map_grid.tile.width,
+    		  y: this.y/Game.Game.map_grid.tile.height
+    	  }
       } else {
         this.attr({
-  		  x: x * Game.Game.map_grid.tile.width,
-  		  y: y * Game.Game.map_grid.tile.height
-  	  });
+    		  x: x * Game.Game.map_grid.tile.width,
+    		  y: y * Game.Game.map_grid.tile.height
+    	  });
         return this;
       }
     }
@@ -55,7 +55,7 @@ module.exports = {
       this.requires('Actor, spr_tree, Solid');
     },
   }),
-  
+
   // random drop test
   RandomDrop : Crafty.c('WeaponDrop', {
     init: function() {
@@ -121,8 +121,7 @@ module.exports = {
             module.exports.Player1Ammo--;
             console.log(module.exports.Player1Ammo);
         }
-    }
-    )
+      })
 
       .multiway(100,{
           W: -90, S: 90, D: 0, A: 180
@@ -158,13 +157,12 @@ module.exports = {
       });
     }
   }),
-  
+
   // Player 2
   Player2 : Crafty.c('Player2', {
     init: function() {
       this.requires('Actor, Solid, Multiway, spr_king, Collision, SpriteAnimation')
       .bind('Moved', function (evt) {
-        // Crafty.audio.play('walkSound_1');
         if (this.hit('Solid')) {
           this[evt.axis] = evt.oldValue;
         }
@@ -247,7 +245,7 @@ module.exports = {
         } else {
           this.pauseAnimation();
         }
-      }); 
+      });
     }
   })
 }

@@ -107,9 +107,47 @@ module.exports = {
       spr_burger: [burgerSprite.frame.x, burgerSprite.frame.y, burgerSprite.frame.w, burgerSprite.frame.h]
   },
   audio: {
-    walk_1: '/assets/sfx/person_walking_on_gravel.mp3',
-    walk_2: '../../public/assets/sfx/person_walks_through_leaves.mp3',
-    throw: '../../public/assets/sfx/tomahawk_axe_throw_whoosh.mp3',
-    splat: '../../public/assets/sfx/wet_gooey_liquid_splat.mp3'
+    throw: [
+      '/assets/sfx/tomahawk_axe_throw_whoosh.ogg',
+      '/assets/sfx/tomahawk_axe_throw_whoosh.m4a',
+      '/assets/sfx/tomahawk_axe_throw_whoosh.wav',
+      '/assets/sfx/tomahawk_axe_throw_whoosh.mp3'
+    ],
+    splat: [
+      '/assets/sfx/wet_gooey_liquid_splat.ogg',
+      '/assets/sfx/wet_gooey_liquid_splat.m4a',
+      '/assets/sfx/wet_gooey_liquid_splat.wav',
+      '/assets/sfx/wet_gooey_liquid_splat.mp3'
+    ],
+    drop: [
+      '/assets/sfx/263129__pan14__sine-up-flutter-beep.ogg',
+      '/assets/sfx/263129__pan14__sine-up-flutter-beep.m4a',
+      '/assets/sfx/263129__pan14__sine-up-flutter-beep.wav',
+      '/assets/sfx/263129__pan14__sine-up-flutter-beep.mp3'
+    ],
+    powerUp: [
+      '/assets/sfx/263655__pan14__upward-beep-chromatic-fifths.ogg',
+      '/assets/sfx/263655__pan14__upward-beep-chromatic-fifths.m4a',
+      '/assets/sfx/263655__pan14__upward-beep-chromatic-fifths.wav',
+      '/assets/sfx/263655__pan14__upward-beep-chromatic-fifths.mp3'
+    ],
+    music: [
+      '/assets/sfx/251461__joshuaempyre__arcade-music-loop.ogg',
+      '/assets/sfx/251461__joshuaempyre__arcade-music-loop.m4a',
+      '/assets/sfx/251461__joshuaempyre__arcade-music-loop.wav',
+      '/assets/sfx/251461__joshuaempyre__arcade-music-loop.mp3'
+    ],
+    laugh: [
+      '/assets/sfx/126113__klankbeeld__laugh.ogg',
+      '/assets/sfx/126113__klankbeeld__laugh.m4a',
+      '/assets/sfx/126113__klankbeeld__laugh.wav',
+      '/assets/sfx/126113__klankbeeld__laugh.mp3'
+    ],
+    hit: [
+      '/assets/sfx/131657__bertrof__game-sound-wrong.ogg',
+      '/assets/sfx/131657__bertrof__game-sound-wrong.m4a',
+      '/assets/sfx/131657__bertrof__game-sound-wrong.wav',
+      '/assets/sfx/131657__bertrof__game-sound-wrong.mp3'
+    ]
   }
 };
