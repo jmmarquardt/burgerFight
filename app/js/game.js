@@ -62,63 +62,8 @@ Crafty.scene('Loading', function(){
   Crafty.scene("Main");
 });
 
-Crafty.scene('VictoryRonald', function() {
-  Crafty.e('2D, DOM, Text')
-    .attr({ x: 0, y: 0 })
-    .text('Victory!');
-
-  this.restart_game = this.bind('KeyDown', function() {
-    Crafty.scene('Main');
-  });
-}, function() {
-	 	this.unbind('KeyDown', this.restart_game);
-});
-
-Crafty.scene('VictoryKing', function() {
-  
-  this.restart_game = this.bind('KeyDown', function() {
-    Crafty.scene('Main');
-  });
-}, function() {
-	 	this.unbind('KeyDown', this.restart_game);
-});
-// "Main" Scene loads players
 Crafty.scene("Main", function () {
-
-	Crafty.e('Player1').at(5, 5);
-  	Crafty.e('Player2').at(15, 5);
-
-	for (var x = 0; x < exports.Game.map_grid.width; x++) {
-      for (var y = 0; y < exports.Game.map_grid.height; y++) {
-		  var at_edge = x === 0 || x === exports.Game.map_grid.width - 1 || y === 0 || y === exports.Game.map_grid.height - 1;
-
-	      if (at_edge) {
-	      	Crafty.e("Trees").at(x, y);
-	      } else if (Math.random() < 0.03) {
-	        Crafty.e("Bushes").at(x, y);
-	      }
-	  }
-	}
-});
-
-// // load audio
-// Crafty.audio.add({
-// 	walkSound_1: assets.audio.walk_1,
-// 	walkSound_2: assets.audio.walk_2,
-// 	throwSound: assets.audio.throw,
-// 	splatSound: assets.audio.splat
-// });
-
-// Game Audio loaded
-Crafty.audio.add("walkSound_1", "/assets/sfx/person_walking_on_gravel.mp3");
-Crafty.audio.add("walkSound_2", "/assets/sfx/person_walks_through_leaves.mp3");
-Crafty.audio.add("throwSound", "/assets/sfx/tomahawk_axe_throw_whoosh.mp3");
-Crafty.audio.add("splatSound", "/assets/sfx/wet_gooey_liquid_splat.mp3");
-// Crafty.audio.add("")
-
-
-	// A 2D array to keep track of all occupied tiles
-  	this.occupied = new Array(exports.Game.map_grid.width);
+	this.occupied = new Array(exports.Game.map_grid.width);
   	
   	for (var i = 0; i < exports.Game.map_grid.width; i++) {
 	    
@@ -147,14 +92,47 @@ Crafty.audio.add("splatSound", "/assets/sfx/wet_gooey_liquid_splat.mp3");
         }
       }
   	}
-
+  	// Spawn player 1
   	this.player1 = Crafty.e('Player1').at(5, 5);
-	console.log("player1 at: ", this.player1.at());
 	this.occupied[this.player1.at().x][this.player1.at().y] = true;
+	// Spawn player 2
 	this.player2 = Crafty.e('Player2').at(30, 30);
 	this.occupied[this.player2.at().x][this.player2.at().y] = true;
 });
 
-// Sprites declared
+// // load audio
+// Crafty.audio.add({
+// 	walkSound_1: assets.audio.walk_1,
+// 	walkSound_2: assets.audio.walk_2,
+// 	throwSound: assets.audio.throw,
+// 	splatSound: assets.audio.splat
+// });
 
+// Game Audio loaded
+Crafty.audio.add("walkSound_1", "/assets/sfx/person_walking_on_gravel.mp3");
+Crafty.audio.add("walkSound_2", "/assets/sfx/person_walks_through_leaves.mp3");
+Crafty.audio.add("throwSound", "/assets/sfx/tomahawk_axe_throw_whoosh.mp3");
+Crafty.audio.add("splatSound", "/assets/sfx/wet_gooey_liquid_splat.mp3");
+// Crafty.audio.add("")
 
+// VICTORY SCENES
+Crafty.scene('VictoryRonald', function() {
+  Crafty.e('2D, DOM, Text')
+    .attr({ x: 0, y: 0 })
+    .text('Victory!');
+
+  this.restart_game = this.bind('KeyDown', function() {
+    Crafty.scene('Main');
+  });
+}, function() {
+	 	this.unbind('KeyDown', this.restart_game);
+});
+
+Crafty.scene('VictoryKing', function() {
+  
+  this.restart_game = this.bind('KeyDown', function() {
+    Crafty.scene('Main');
+  });
+}, function() {
+	 	this.unbind('KeyDown', this.restart_game);
+});
