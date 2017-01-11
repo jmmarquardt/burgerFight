@@ -46,13 +46,22 @@ Crafty.scene('Loading', function(){
   	.css({"font-size": "50px"});
 
   // Game Audio loaded and declared
-  Crafty.audio.add("throwSound", sfx.throw);
-  Crafty.audio.add("splatSound", sfx.splat);
-	Crafty.audio.add("dropSound", sfx.drop);
-	Crafty.audio.add("powerUpSound", sfx.powerUp);
-	Crafty.audio.add("backgroundMusic", sfx.music);
-	Crafty.audio.add("ronaldLaugh", sfx.laugh);
-	Crafty.audio.add("hitSound", sfx.hit);
+	Crafty.audio.add({
+		// effects
+		throwSound: sfx.throw,
+		splatSound: sfx.splat,
+		dropSound: sfx.drop,
+		powerUpSound: sfx.powerUp,
+		// music
+		backgroundMusic: sfx.music,
+		// voices
+		ronaldLaugh: sfx.laugh,
+		hitSound: sfx.hit,
+		finishHim: sfx.finishHim,
+		round1: sfx.round1,
+		fight: sfx.fight,
+		gameOver: sfx.gameOver
+	});
 
 	// static game sprites loaded and declared
   Crafty.sprite(1,"/assets/img/sprites/spritesheet.png", {
