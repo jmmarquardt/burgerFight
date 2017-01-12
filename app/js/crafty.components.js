@@ -1,16 +1,24 @@
 var Game = require('./game.js'),
     assets = require('./assetObj.js'),
+    drops = require('./drops.js'),
     tween = require('./tween.js'),
     Ronald = assets.Ronald,
     King = assets.King;
 
 module.exports = {
-  Player1Ammo: 10,
-  Player2Ammo: 10,
-  Player1Health: 3,
-  Player2Health: 3,
-  Player1PowerUp: false,
-  Player2PowerUp: false,
+  players: {
+    p1 : {
+      ammo: 10,
+      health: 3,
+      powerUp: false
+    },
+    p2 : {
+      ammo: 10,
+      health: 3,
+      powerUp: false
+    }
+  },
+  
   Grid : Crafty.c('Grid', {
     init: function() {
       this.attr({
@@ -56,15 +64,27 @@ module.exports = {
     },
   }),
 
-  // random drop test
-  RandomDrop : Crafty.c('WeaponDrop', {
+  Drop : Crafty.c('Drop', {
     init: function() {
-      this.requires('Actor, Color')
+      this.requires('Actor')
           .attr({
             w:15,
             h:15
           })
-          .color("rgb(0, 0, 0)");
+    }
+  }),
+
+  AmmoDrop : Crafty.c('AmmoDrop', {
+    init: function() {
+      this.requires('Drop, Color')
+      .color("rgb(0, 0, 0)");
+    }
+  }),
+
+  BigBurger : Crafty.c('BigBurger', {
+    init: function() {
+      this.requires('Drop, Color')
+      .color("rgb(255,255,255)");
     }
   }),
 
@@ -78,16 +98,16 @@ module.exports = {
         }
       })
       .onHit('Actor', function(evt) {
-        if (evt[0].obj._element.className.indexOf("WeaponDrop") !== -1) {
-          module.exports.Player1PowerUp = true;
+        if (evt[0].obj._element.className.indexOf("Drop") !== -1) {
+          Crafty.audio.play("powerUpSound");
           evt[0].obj.destroy();
-          console.log("POWERUP!!!");
+          drops.getDropType(evt[0].obj, this, module.exports.players);
         }
       })
       .bind(
       "KeyDown",
       function(e) {
-        if (e.key == Crafty.keys["F"] && module.exports.Player1Ammo > 0) {
+        if (e.key == Crafty.keys["F"] && module.exports.players.p1.ammo > 0) {
           var burgerX = tween.getTweenDirection(this)[1].x;
           var burgerY = tween.getTweenDirection(this)[1].y;
           // play throw sound
@@ -97,8 +117,8 @@ module.exports = {
             .attr({
                 x:burgerX,
                 y:burgerY,
-                w:10,
-                h:10
+                w: drops.checkPowerUp(this, module.exports.players),
+                h: drops.checkPowerUp(this, module.exports.players)
               })
             .onHit('Solid', function (evt) {
               if (evt[0].obj._element.className.indexOf("spr_ronald") === -1) {
@@ -108,18 +128,20 @@ module.exports = {
               }
 
               if (evt[0].type === "SAT" && evt[0].obj._element.className.indexOf("spr_ronald") === -1) {
-                module.exports.Player2Health--;
-                if (module.exports.Player2Health <= 0) {
+                module.exports.players.p2.health--;
+                if (module.exports.players.p2.health <= 0) {
                   evt[0].obj.destroy();
+                  
                   Crafty.scene("VictoryRonald");
-                  module.exports.Player1Ammo = 10;
-                  module.exports.Player2Ammo = 10;
+                  module.exports.players.p1.ammo = 10;
+                  module.exports.players.p1.health = 3;
+                  module.exports.players.p2.ammo = 10;
+                  module.exports.players.p2.health = 3;
                 }
               }
             })
             .tween(tween.getTweenDirection(this)[0], 1500);
-            module.exports.Player1Ammo--;
-            console.log(module.exports.Player1Ammo);
+            module.exports.players.p1.ammo--;
         }
       })
 
@@ -168,27 +190,29 @@ module.exports = {
         }
       })
       .onHit('Actor', function(evt) {
-        if (evt[0].obj._element.className.indexOf("WeaponDrop") !== -1) {
-          module.exports.Player2PowerUp = true;
+        if (evt[0].obj._element.className.indexOf("Drop") !== -1) {
+          module.exports.players.p2.powerUp = true;
+          Crafty.audio.play("powerUpSound");
           evt[0].obj.destroy();
-          console.log("POWERUP!!!");
+          drops.getDropType(evt[0].obj, this, module.exports.players);
         }
       })
       .bind(
         "KeyDown",
         function(e) {
-          if (e.key == Crafty.keys["SPACE"] && module.exports.Player2Ammo > 0) {
-            var burgerX = tween.getTweenDirection(this)[1].x;
-            var burgerY = tween.getTweenDirection(this)[1].y;
+          if (e.key == Crafty.keys["SPACE"] && module.exports.players.p2.ammo > 0) {
+            var burgerX = tween.getTweenDirection(this)[1].x,
+                burgerY = tween.getTweenDirection(this)[1].y;
+            
             // play throw sound
             Crafty.audio.play('throwSound');
             // burger
             Crafty.e("Actor, spr_burger, Collision, Tween")
               .attr({
-                  x:burgerX,
-                  y:burgerY,
-                  w:10,
-                  h:10
+                  x: burgerX,
+                  y: burgerY,
+                  w: drops.checkPowerUp(this, module.exports.players),
+                  h: drops.checkPowerUp(this, module.exports.players)
                 })
               .onHit('Solid', function (evt) {
                 if (evt[0].obj._element.className.indexOf("spr_king") === -1) {
@@ -197,17 +221,19 @@ module.exports = {
                 }
 
                 if (evt[0].type === "SAT" && evt[0].obj._element.className.indexOf("spr_king") === -1) {
-                  module.exports.Player1Health--;
-                  if (module.exports.Player1Health <= 0) {
+                  module.exports.players.p1.health--;
+                  if (module.exports.players.p1.health <= 0) {
                     evt[0].obj.destroy();
-                    Crafty.scene("VictoryRonald");
-                    module.exports.Player1Ammo = 10;
-                    module.exports.Player2Ammo = 10;
+                    Crafty.scene("VictoryKing");
+                    module.exports.players.p1.ammo = 10;
+                    module.exports.players.p1.health = 3;
+                    module.exports.players.p2.ammo = 10;                   
+                    module.exports.players.p2.health = 3;
                   }
                 }
               })
               .tween(tween.getTweenDirection(this)[0], 1500);
-              module.exports.Player2Ammo--;
+              module.exports.players.p2.ammo--;
           }
         }
       )
