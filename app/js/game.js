@@ -9,7 +9,9 @@ var assets = require('./assetObj.js'),
 	Trees = components.Trees,
 	Grid = components.Grid,
 	Player1 = components.Player1,
-	Player2 = components.Player2;
+	Player2 = components.Player2,
+	dropInterval,
+	gameMusicLoop;
 
 // ============================================================================
 
@@ -65,7 +67,7 @@ Crafty.scene('Loading', function(){
 
 	// static game sprites loaded and declared
   Crafty.sprite(1,"/assets/img/sprites/spritesheet.png", {
-    spr_ronald: Sprites.spr_ronald,
+    	spr_ronald: Sprites.spr_ronald,
 		spr_king: Sprites.spr_king,
 		spr_bush: Sprites.spr_bush,
 		spr_tree: Sprites.spr_tree,
@@ -79,15 +81,21 @@ Crafty.scene('Loading', function(){
 
 Crafty.scene("Main", function () {
 	var occupied = new Array(exports.Game.map_grid.width);
+
+	Crafty.audio.play('fight');
 	Crafty.audio.play('backgroundMusic');
+
+	var gameMusicLoop = setInterval(function () {
+		Crafty.audio.play('backgroundMusic');
+	},34000);
 
 	for (var i = 0; i < exports.Game.map_grid.width; i++) {
 
-    occupied[i] = new Array(exports.Game.map_grid.height);
+    	occupied[i] = new Array(exports.Game.map_grid.height);
 
-    for (var j = 0; j < exports.Game.map_grid.height; j++) {
-      	occupied[i][j] = false;
-  	}
+    	for (var j = 0; j < exports.Game.map_grid.height; j++) {
+      		occupied[i][j] = false;
+  		}
 	}
 
 	for (var x = 0; x < exports.Game.map_grid.width; x++) {
@@ -116,21 +124,27 @@ Crafty.scene("Main", function () {
 	this.player2 = Crafty.e('Player2').at(30, 30);
 	occupied[this.player2.at().x][this.player2.at().y] = true;
 
-	setInterval(function() {
+	dropInterval = setInterval(function() {
 		var randomX = Math.round(Math.random() * 14) + 10;
 		var randomY = Math.round(Math.random() * 14) + 10;
 
 		if (!occupied[randomX][randomY]) {
-			Crafty.e("WeaponDrop").at(randomX,randomY);
+			if (Math.random() < .5) {
+				Crafty.e("AmmoDrop").at(randomX,randomY);
+			} else {
+				Crafty.e("BigBurger").at(randomX, randomY);
+			}
+			Crafty.audio.play("dropSound");
 		}
-	},1000);
+	},15000);
 });
 
 // VICTORY SCENES
 Crafty.scene('VictoryRonald', function() {
-  Crafty.e('2D, DOM, Text')
-    .attr({ x: 0, y: 0 })
-    .text('Victory!');
+  clearInterval(dropInterval);
+  clearInterval(gameMusicLoop);
+  Crafty.audio.stop();
+  Crafty.audio.play("ronaldLaugh");
 
   this.restart_game = this.bind('KeyDown', function() {
     Crafty.scene('Main');
@@ -140,7 +154,9 @@ Crafty.scene('VictoryRonald', function() {
 });
 
 Crafty.scene('VictoryKing', function() {
-
+  clearInterval(dropInterval);
+  clearInterval(gameMusicLoop);
+  Crafty.audio.stop();
   this.restart_game = this.bind('KeyDown', function() {
     Crafty.scene('Main');
   });

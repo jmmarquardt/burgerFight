@@ -148,6 +148,15 @@ module.exports = {
       '/assets/sfx/131657__bertrof__game-sound-wrong.m4a',
       '/assets/sfx/131657__bertrof__game-sound-wrong.wav',
       '/assets/sfx/131657__bertrof__game-sound-wrong.mp3'
+    ],
+    fight: [
+      '/assets/sfx/voices/fight.mp3'
+    ],
+    round1: [
+      '/assets/sfx/voices/round1.mp3'
+    ],
+    finishHim: [
+      '/assets/sfx/voices/finishHim.mp3'
     ]
   }
 };
