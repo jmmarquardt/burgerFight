@@ -22,7 +22,7 @@ exports.Game = {
 	 	Crafty.scene("Loading");
   },
   map_grid: {
-    width:  50,
+    width:  38,
     height: 38,
     tile: {
       width:  16,
