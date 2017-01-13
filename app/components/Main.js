@@ -14,11 +14,8 @@ var Main = React.createClass({
   render: function() {
     return (
       <section className="container">
-        <section className="jumbotron">
-          <h1 className="text-center">Burger Fight</h1>
-        </section>
         <section className="row">
-          <section className="col-md-8 col-md-offset-2 game-area">
+          <section className="col-md-8 col-md-offset-1 game-area">
             <Gamescreen />
           </section>
         </section>
