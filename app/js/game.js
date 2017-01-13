@@ -22,7 +22,7 @@ exports.Game = {
 	 	Crafty.scene("Loading");
   },
   map_grid: {
-    width:  38,
+    width:  50,
     height: 38,
     tile: {
       width:  16,
@@ -85,9 +85,9 @@ Crafty.scene("Main", function () {
 	Crafty.audio.play('fight');
 	Crafty.audio.play('backgroundMusic',-1);
 
-	var gameMusicLoop = setInterval(function () {
-		Crafty.audio.play('backgroundMusic');
-	},34000);
+	// var gameMusicLoop = setInterval(function () {
+	// 	Crafty.audio.play('backgroundMusic');
+	// },34000);
 
 	for (var i = 0; i < exports.Game.map_grid.width; i++) {
 
@@ -136,7 +136,7 @@ Crafty.scene("Main", function () {
 			}
 			Crafty.audio.play("dropSound");
 		}
-	},1000);
+	},15000);
 });
 
 // VICTORY SCENES
