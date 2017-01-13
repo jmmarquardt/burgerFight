@@ -83,7 +83,7 @@ Crafty.scene("Main", function () {
 	var occupied = new Array(exports.Game.map_grid.width);
 
 	Crafty.audio.play('fight');
-	Crafty.audio.play('backgroundMusic');
+	Crafty.audio.play('backgroundMusic',-1);
 
 	var gameMusicLoop = setInterval(function () {
 		Crafty.audio.play('backgroundMusic');
@@ -101,7 +101,7 @@ Crafty.scene("Main", function () {
 	for (var x = 0; x < exports.Game.map_grid.width; x++) {
     for (var y = 0; y < exports.Game.map_grid.height; y++) {
 
-			var at_edge = x === 0 || x === exports.Game.map_grid.width - 1 || y === 0 || y === exports.Game.map_grid.height - 1;
+	var at_edge = x === 0 || x === exports.Game.map_grid.width - 1 || y === 0 || y === exports.Game.map_grid.height - 1;
 
       if (at_edge) {
       	Crafty.e("Trees").at(x, y);
@@ -136,7 +136,7 @@ Crafty.scene("Main", function () {
 			}
 			Crafty.audio.play("dropSound");
 		}
-	},15000);
+	},1000);
 });
 
 // VICTORY SCENES

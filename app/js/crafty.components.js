@@ -9,11 +9,13 @@ module.exports = {
   players: {
     p1 : {
       ammo: 10,
+      powerCounter: 0,
       health: 3,
       powerUp: false
     },
     p2 : {
       ammo: 10,
+      powerCounter: 0,
       health: 3,
       powerUp: false
     }
@@ -107,7 +109,7 @@ module.exports = {
       .bind(
       "KeyDown",
       function(e) {
-        if (e.key == Crafty.keys["F"] && module.exports.players.p1.ammo > 0) {
+        if (e.key == Crafty.keys["F"] && (module.exports.players.p1.ammo > 0 || module.exports.players.p1.powerCounter > 0)) {
           var burgerX = tween.getTweenDirection(this)[1].x;
           var burgerY = tween.getTweenDirection(this)[1].y;
           // play throw sound
@@ -135,14 +137,28 @@ module.exports = {
                   Crafty.scene("VictoryRonald");
                   module.exports.players.p1.ammo = 10;
                   module.exports.players.p1.health = 3;
+                  module.exports.players.p1.powerUp = false;
+                  module.exports.players.p1.powerCounter = 0;
                   module.exports.players.p2.ammo = 10;
                   module.exports.players.p2.health = 3;
+                  module.exports.players.p2.powerUp = false;
+                  module.exports.players.p2.powerCounter = 0;
                 }
               }
             })
             .tween(tween.getTweenDirection(this)[0], 1500);
-            module.exports.players.p1.ammo--;
-        }
+
+            if (module.exports.players.p1.powerUp) {
+              if (module.exports.players.p1.powerCounter > 1) {
+                module.exports.players.p1.powerCounter--;
+              } else {
+                module.exports.players.p1.powerUp = false;
+                module.exports.players.p1.powerCounter--;
+              }
+            } else {
+              module.exports.players.p1.ammo--;
+            }
+        }   
       })
 
       .multiway(100,{
@@ -191,7 +207,6 @@ module.exports = {
       })
       .onHit('Actor', function(evt) {
         if (evt[0].obj._element.className.indexOf("Drop") !== -1) {
-          module.exports.players.p2.powerUp = true;
           Crafty.audio.play("powerUpSound");
           evt[0].obj.destroy();
           drops.getDropType(evt[0].obj, this, module.exports.players);
@@ -200,7 +215,7 @@ module.exports = {
       .bind(
         "KeyDown",
         function(e) {
-          if (e.key == Crafty.keys["SPACE"] && module.exports.players.p2.ammo > 0) {
+          if (e.key == Crafty.keys["SPACE"] && (module.exports.players.p2.ammo > 0 || module.exports.players.p2.powerCounter > 0)) {
             var burgerX = tween.getTweenDirection(this)[1].x,
                 burgerY = tween.getTweenDirection(this)[1].y;
             
@@ -227,13 +242,27 @@ module.exports = {
                     Crafty.scene("VictoryKing");
                     module.exports.players.p1.ammo = 10;
                     module.exports.players.p1.health = 3;
+                    module.exports.players.p1.powerUp = false;
+                    module.exports.players.p1.powerCounter = 0;
                     module.exports.players.p2.ammo = 10;                   
                     module.exports.players.p2.health = 3;
+                    module.exports.players.p2.powerUp = false;
+                    module.exports.players.p2.powerCounter = 0;
                   }
                 }
               })
               .tween(tween.getTweenDirection(this)[0], 1500);
-              module.exports.players.p2.ammo--;
+              
+              if (module.exports.players.p2.powerUp) {
+                if (module.exports.players.p2.powerCounter > 1) {
+                  module.exports.players.p2.powerCounter--;
+                } else {
+                  module.exports.players.p2.powerUp = false;
+                  module.exports.players.p2.powerCounter--;
+                }
+              } else {
+                module.exports.players.p2.ammo--;
+              }
           }
         }
       )

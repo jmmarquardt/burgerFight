@@ -11,10 +11,11 @@ exports.getDropType = function (evtObj, player, playersObj) {
 		}
 	} else if (evtObj._element.className.indexOf("BigBurger") !== -1) {
 		if (player._element.className.indexOf("spr_ronald") !== -1) {
-			console.log("ronald big burger");
 			playersObj.p1.powerUp = true;
+			playersObj.p1.powerCounter += 5;
 		} else if (player._element.className.indexOf("spr_king") !== -1) {
 			playersObj.p2.powerUp = true;
+			playersObj.p2.powerCounter += 5;
 		}
 	}
 }
