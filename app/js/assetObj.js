@@ -201,12 +201,21 @@ module.exports = {
       '/assets/sfx/131657__bertrof__game-sound-wrong.mp3'
     ],
     fight: [
+      '/assets/sfx/voices/fight.ogg',
+      '/assets/sfx/voices/fight.m4a',
+      '/assets/sfx/voices/fight.wav',
       '/assets/sfx/voices/fight.mp3'
     ],
     round1: [
+      '/assets/sfx/voices/round1.ogg',
+      '/assets/sfx/voices/round1.m4a',
+      '/assets/sfx/voices/round1.wav',
       '/assets/sfx/voices/round1.mp3'
     ],
     finishHim: [
+      '/assets/sfx/voices/finishHim.ogg',
+      '/assets/sfx/voices/finishHim.m4a',
+      '/assets/sfx/voices/finishHim.wav',
       '/assets/sfx/voices/finishHim.mp3'
     ]
   }
