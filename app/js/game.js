@@ -151,7 +151,7 @@ Crafty.scene('VictoryRonald', function() {
   clearInterval(gameMusicLoop);
   Crafty.audio.stop();
   Crafty.audio.play("ronaldLaugh");
-
+  // Crafty.background('url(http://i49.tinypic.com/egd83n.jpg)');
   this.restart_game = this.bind('KeyDown', function() {
     Crafty.scene('Main');
   });
@@ -163,6 +163,7 @@ Crafty.scene('VictoryKing', function() {
   clearInterval(dropInterval);
   clearInterval(gameMusicLoop);
   Crafty.audio.stop();
+  // Crafty.background('url(http://i49.tinypic.com/egd83n.jpg)');
   this.restart_game = this.bind('KeyDown', function() {
     Crafty.scene('Main');
   });
