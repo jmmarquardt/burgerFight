@@ -67,12 +67,15 @@ Crafty.scene('Loading', function(){
 
 	// static game sprites loaded and declared
   Crafty.sprite(1,"/assets/img/sprites/spritesheet.png", {
-    	spr_ronald: Sprites.spr_ronald,
+    spr_ronald: Sprites.spr_ronald,
 		spr_king: Sprites.spr_king,
 		spr_bush: Sprites.spr_bush,
 		spr_tree: Sprites.spr_tree,
 		spr_ground: Sprites.spr_ground,
-		spr_burger: Sprites.spr_burger
+		spr_burger: Sprites.spr_burger,
+		spr_heart: Sprites.spr_heart,
+		spr_happyMeal: Sprites.spr_happyMeal,
+		spr_bigBurger: Sprites.spr_bigBurger
   });
 
   // load scene "main"
@@ -139,7 +142,7 @@ Crafty.scene("Main", function () {
 			}
 			Crafty.audio.play("dropSound");
 		}
-	},1000);
+	},15000);
 });
 
 // VICTORY SCENES

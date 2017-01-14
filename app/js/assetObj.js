@@ -2,12 +2,15 @@
 // When sprite sheet changes, just update the below frame numbers from
 // spritesheet.json
 var spritesheet = require('../../public/assets/img/sprites/spritesheet.json'),
-  bushSprite = spritesheet.frames[2],
-  ronaldSprite = spritesheet.frames[44],
-  kingSprite = spritesheet.frames[4],
-  burgerSprite = spritesheet.frames[0],
-  treeSprite = spritesheet.frames[3],
-  groundSprite = spritesheet.frames[1];
+  bush      = spritesheet.frames[2],
+  ronald    = spritesheet.frames[44],
+  king      = spritesheet.frames[4],
+  burger    = spritesheet.frames[0],
+  tree      = spritesheet.frames[3],
+  ground    = spritesheet.frames[1],
+  heart     = spritesheet.frames[110],
+  happyMeal = spritesheet.frames[109],
+  bigBurger = spritesheet.frames[108];
 // ============================================================================
 // exporting assetObj
 module.exports = {
@@ -44,7 +47,7 @@ module.exports = {
       ],
       left: [
         [32, 1118], [0, 1156], [32, 1156], [0, 1194],
-        [32, 1194],
+        [32, 1194]
       ],
       right: [
         [0, 1384], [32, 1384], [0, 1422], [32, 1422],
@@ -99,12 +102,60 @@ module.exports = {
   },
   // our static sprites
   sprites: {
-      spr_ronald: [ronaldSprite.frame.x, ronaldSprite.frame.y, ronaldSprite.frame.w, ronaldSprite.frame.h],
-      spr_king: [kingSprite.frame.x, kingSprite.frame.y, kingSprite.frame.w, kingSprite.frame.h],
-      spr_bush: [bushSprite.frame.x, bushSprite.frame.y, bushSprite.frame.w, bushSprite.frame.h],
-  	  spr_tree: [treeSprite.frame.x, treeSprite.frame.y, treeSprite.frame.w, treeSprite.frame.h],
-      spr_ground: [groundSprite.frame.x, groundSprite.frame.y, groundSprite.frame.w, groundSprite.frame.h],
-      spr_burger: [burgerSprite.frame.x, burgerSprite.frame.y, burgerSprite.frame.w, burgerSprite.frame.h]
+      spr_ronald: [
+        ronald.frame.x,
+        ronald.frame.y,
+        ronald.frame.w,
+        ronald.frame.h
+      ],
+      spr_king: [
+        king.frame.x,
+        king.frame.y,
+        king.frame.w,
+        king.frame.h
+      ],
+      spr_bush: [
+        bush.frame.x,
+        bush.frame.y,
+        bush.frame.w,
+        bush.frame.h
+      ],
+  	  spr_tree: [
+        tree.frame.x,
+        tree.frame.y,
+        tree.frame.w,
+        tree.frame.h
+      ],
+      spr_ground: [
+        ground.frame.x,
+        ground.frame.y,
+        ground.frame.w,
+        ground.frame.h
+      ],
+      spr_burger: [
+        burger.frame.x,
+        burger.frame.y,
+        burger.frame.w,
+        burger.frame.h
+      ],
+      spr_heart: [
+        heart.frame.x,
+        heart.frame.y,
+        heart.frame.w,
+        heart.frame.h
+      ],
+      spr_bigBurger: [
+        bigBurger.frame.x,
+        bigBurger.frame.y,
+        bigBurger.frame.w,
+        bigBurger.frame.h
+      ],
+      spr_happyMeal: [
+        happyMeal.frame.x,
+        happyMeal.frame.y,
+        happyMeal.frame.w,
+        happyMeal.frame.h
+      ]
   },
   audio: {
     throw: [
