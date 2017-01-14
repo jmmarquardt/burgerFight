@@ -22,8 +22,8 @@ exports.Game = {
 	 	Crafty.scene("Loading");
   },
   map_grid: {
-    width:  38,
-    height: 38,
+    width:  Math.round((window.innerWidth / 16) / 1.5),
+    height: Math.round((window.innerHeight / 16) - 2),
     tile: {
       width:  16,
       height: 16
@@ -80,8 +80,9 @@ Crafty.scene('Loading', function(){
 });
 
 Crafty.scene("Main", function () {
+	console.log(exports.Game.map_grid.width);
 	var occupied = new Array(exports.Game.map_grid.width);
-
+	console.log("w: " + window.innerWidth, "h: " + window.innerHeight);
 	Crafty.audio.play('fight');
 	Crafty.audio.play('backgroundMusic',-1);
 
@@ -129,14 +130,16 @@ Crafty.scene("Main", function () {
 		var randomY = Math.round(Math.random() * 14) + 10;
 
 		if (!occupied[randomX][randomY]) {
-			if (Math.random() < .5) {
+			if (Math.random() <= .2) {
 				Crafty.e("AmmoDrop").at(randomX,randomY);
-			} else {
+			} else if (Math.random() > .2 && Math.random() <= .6) {
 				Crafty.e("BigBurger").at(randomX, randomY);
+			} else if (Math.random() > .6) {
+				Crafty.e("Health").at(randomX, randomY);
 			}
 			Crafty.audio.play("dropSound");
 		}
-	},15000);
+	},1000);
 });
 
 // VICTORY SCENES
