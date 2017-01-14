@@ -971,14 +971,41 @@ module.exports = {"frames": [
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":38},
 	"sourceSize": {"w":32,"h":38},
 	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "sprites_drops/big_burger-2.png",
+	"frame": {"x":0,"y":1992,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "sprites_drops/happy_meal.png",
+	"frame": {"x":16,"y":1992,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "sprites_drops/heart_16x16.png",
+	"frame": {"x":32,"y":1992,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16},
+	"pivot": {"x":0.5,"y":0.5}
 }],
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "spritesheet.png",
 	"format": "RGBA8888",
-	"size": {"w":64,"h":1992},
+	"size": {"w":64,"h":2008},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:dcf232c3fcb346b37e1ceed0f8c03114:f80736baba12057a9c50a98f7eeee6e9:729adc6043343cfda41c447ce8f464d6$"
+	"smartupdate": "$TexturePacker:SmartUpdate:0d0c435a38db64901e5c85abddfc3ddb:091fadc9f9c9106830c27f93b474f4c9:729adc6043343cfda41c447ce8f464d6$"
 }
 }

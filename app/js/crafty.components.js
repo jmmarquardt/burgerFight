@@ -20,7 +20,7 @@ module.exports = {
       powerUp: false
     }
   },
-  
+
   Grid : Crafty.c('Grid', {
     init: function() {
       this.attr({
@@ -78,22 +78,22 @@ module.exports = {
 
   AmmoDrop : Crafty.c('AmmoDrop', {
     init: function() {
-      this.requires('Drop, Color')
-      .color("rgb(0, 0, 0)");
+      this.requires('Drop, spr_happyMeal');
+      // .color("rgb(0, 0, 0)");
     }
   }),
 
   BigBurger : Crafty.c('BigBurger', {
     init: function() {
-      this.requires('Drop, Color')
-      .color("rgb(255,255,255)");
+      this.requires('Drop, spr_bigBurger');
+      // .color("rgb(255,255,255)");
     }
   }),
 
   Health : Crafty.c('Health', {
     init: function() {
-      this.requires('Drop, Color')
-      .color("red");
+      this.requires('Drop, spr_heart');
+      // .color("red");
     }
   }),
 
@@ -140,7 +140,7 @@ module.exports = {
                 module.exports.players.p2.health--;
                 if (module.exports.players.p2.health <= 0) {
                   evt[0].obj.destroy();
-                  
+
                   Crafty.scene("VictoryRonald");
                   module.exports.players.p1.ammo = 10;
                   module.exports.players.p1.health = 3;
@@ -165,7 +165,7 @@ module.exports = {
             } else {
               module.exports.players.p1.ammo--;
             }
-        }   
+        }
       })
 
       .multiway(100,{
@@ -225,7 +225,7 @@ module.exports = {
           if (e.key == Crafty.keys["SPACE"] && (module.exports.players.p2.ammo > 0 || module.exports.players.p2.powerCounter > 0)) {
             var burgerX = tween.getTweenDirection(this)[1].x,
                 burgerY = tween.getTweenDirection(this)[1].y;
-            
+
             // play throw sound
             Crafty.audio.play('throwSound');
             // burger
@@ -251,7 +251,7 @@ module.exports = {
                     module.exports.players.p1.health = 3;
                     module.exports.players.p1.powerUp = false;
                     module.exports.players.p1.powerCounter = 0;
-                    module.exports.players.p2.ammo = 10;                   
+                    module.exports.players.p2.ammo = 10;
                     module.exports.players.p2.health = 3;
                     module.exports.players.p2.powerUp = false;
                     module.exports.players.p2.powerCounter = 0;
@@ -259,7 +259,7 @@ module.exports = {
                 }
               })
               .tween(tween.getTweenDirection(this)[0], 1500);
-              
+
               if (module.exports.players.p2.powerUp) {
                 if (module.exports.players.p2.powerCounter > 1) {
                   module.exports.players.p2.powerCounter--;
