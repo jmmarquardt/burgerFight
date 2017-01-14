@@ -1,5 +1,6 @@
 var React  = require("react"),
-    Gamescreen = require("./Gamescreen");
+    Gamescreen = require("./Gamescreen"),
+    PlayerCard = require("./PlayerCard");
     
 var Main = React.createClass({
 
@@ -13,24 +14,13 @@ var Main = React.createClass({
 
   render: function() {
     return (
-      <section className="container">
-        <section className="jumbotron">
-          <h1 className="text-center">Burger Fight</h1>
-        </section>
+      <section>
         <section className="row">
-          <section className="col-md-2">
-            <h1>TEST</h1>
-            <div className="playerCard">
-            </div>
-          </section>
-          <section className="col-md-8 game-area">
+          <PlayerCard />
+          <section className="game-area">
             <Gamescreen />
           </section>
-          <section className="col-md-2">
-            <h1>TEST</h1>
-            <div className="playerCard">
-            </div>
-          </section>
+          <PlayerCard />
         </section>
       </section>
     );
