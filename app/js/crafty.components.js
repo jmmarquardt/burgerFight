@@ -90,6 +90,13 @@ module.exports = {
     }
   }),
 
+  Health : Crafty.c('Health', {
+    init: function() {
+      this.requires('Drop, Color')
+      .color("red");
+    }
+  }),
+
   // Player 1
   Player1 : Crafty.c('Player1', {
     init: function() {

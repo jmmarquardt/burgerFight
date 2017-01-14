@@ -15,9 +15,11 @@ var Main = React.createClass({
     return (
       <section className="container">
         <section className="row">
-          <section className="col-md-8 col-md-offset-1 game-area">
+          <section className="col-md-2"></section>
+          <section className="col-md-8 game-area">
             <Gamescreen />
           </section>
+          <section className="col-md-2"></section>
         </section>
       </section>
     );
