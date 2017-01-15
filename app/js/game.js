@@ -67,12 +67,16 @@ Crafty.scene('Loading', function(){
 
 	// static game sprites loaded and declared
   Crafty.sprite(1,"/assets/img/sprites/spritesheet.png", {
+		// players static sprites
     spr_ronald: Sprites.spr_ronald,
 		spr_king: Sprites.spr_king,
+		// background sprites
 		spr_bush: Sprites.spr_bush,
 		spr_tree: Sprites.spr_tree,
 		spr_ground: Sprites.spr_ground,
+		// throws
 		spr_burger: Sprites.spr_burger,
+		// drops
 		spr_heart: Sprites.spr_heart,
 		spr_happyMeal: Sprites.spr_happyMeal,
 		spr_bigBurger: Sprites.spr_bigBurger
@@ -86,7 +90,7 @@ Crafty.scene("Main", function () {
 	
 	var occupied = new Array(exports.Game.map_grid.width);
 	Crafty.audio.play('fight');
-	// Crafty.audio.play('backgroundMusic', -1);
+	Crafty.audio.play('backgroundMusic', -1);
 
 	for (var i = 0; i < exports.Game.map_grid.width; i++) {
 
@@ -153,7 +157,7 @@ Crafty.scene('VictoryRonald', function() {
   clearInterval(gameMusicLoop);
   Crafty.audio.stop();
   Crafty.audio.play("ronaldLaugh");
-
+  // Crafty.background('url(http://i49.tinypic.com/egd83n.jpg)');
   this.restart_game = this.bind('KeyDown', function() {
     Crafty.scene('Main');
   });
@@ -165,6 +169,7 @@ Crafty.scene('VictoryKing', function() {
   clearInterval(dropInterval);
   clearInterval(gameMusicLoop);
   Crafty.audio.stop();
+  // Crafty.background('url(http://i49.tinypic.com/egd83n.jpg)');
   this.restart_game = this.bind('KeyDown', function() {
     Crafty.scene('Main');
   });

@@ -79,21 +79,18 @@ module.exports = {
   AmmoDrop : Crafty.c('AmmoDrop', {
     init: function() {
       this.requires('Drop, spr_happyMeal');
-      // .color("rgb(0, 0, 0)");
     }
   }),
 
   BigBurger : Crafty.c('BigBurger', {
     init: function() {
       this.requires('Drop, spr_bigBurger');
-      // .color("rgb(255,255,255)");
     }
   }),
 
   Health : Crafty.c('Health', {
     init: function() {
       this.requires('Drop, spr_heart');
-      // .color("red");
     }
   }),
 

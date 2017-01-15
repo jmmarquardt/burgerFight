@@ -5,3 +5,8 @@ body{
 	/*background-image: url('../img/top-view-roundabout-vector.jpg');*/
 	margin: 0 auto;
 }
+.playerCard{
+	height: 100px;
+	width: 100px;
+	background-color: red;
+}
