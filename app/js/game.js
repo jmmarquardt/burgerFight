@@ -67,12 +67,16 @@ Crafty.scene('Loading', function(){
 
 	// static game sprites loaded and declared
   Crafty.sprite(1,"/assets/img/sprites/spritesheet.png", {
+		// players static sprites
     spr_ronald: Sprites.spr_ronald,
 		spr_king: Sprites.spr_king,
+		// background sprites
 		spr_bush: Sprites.spr_bush,
 		spr_tree: Sprites.spr_tree,
 		spr_ground: Sprites.spr_ground,
+		// throws
 		spr_burger: Sprites.spr_burger,
+		// drops
 		spr_heart: Sprites.spr_heart,
 		spr_happyMeal: Sprites.spr_happyMeal,
 		spr_bigBurger: Sprites.spr_bigBurger
@@ -87,7 +91,7 @@ Crafty.scene("Main", function () {
 	var occupied = new Array(exports.Game.map_grid.width);
 	console.log("w: " + window.innerWidth, "h: " + window.innerHeight);
 	Crafty.audio.play('fight');
-	Crafty.audio.play('backgroundMusic',-1);
+	Crafty.audio.play('backgroundMusic', -1);
 
 	// var gameMusicLoop = setInterval(function () {
 	// 	Crafty.audio.play('backgroundMusic');

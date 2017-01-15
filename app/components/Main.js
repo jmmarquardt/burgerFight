@@ -1,7 +1,7 @@
 var React  = require("react"),
     Gamescreen = require("./Gamescreen"),
     PlayerCard = require("./PlayerCard");
-    
+
 var Main = React.createClass({
 
   componentDidMount: function() {
