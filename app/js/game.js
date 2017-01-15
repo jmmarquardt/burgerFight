@@ -127,7 +127,7 @@ Crafty.scene("Main", function () {
 	      if (at_edge) {
 	      	Crafty.e("Trees").at(x, y);
 	      	occupied[x][y] = true;
-	      } else if (Math.random() < .15 && !occupied[x][y]) {
+	      } else if (Math.random() < .05 && !occupied[x][y]) {
 	      		Crafty.e("Bushes").at(x, y);
 	      		occupied[x][y] = true;
 	      	}
@@ -148,7 +148,7 @@ Crafty.scene("Main", function () {
 			}
 			Crafty.audio.play("dropSound");
 		}
-	},500);
+	},15000);
 });
 
 // VICTORY SCENES
