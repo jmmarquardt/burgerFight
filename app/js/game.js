@@ -22,7 +22,7 @@ exports.Game = {
 	 	Crafty.scene("Loading");
   },
   map_grid: {
-    width:  Math.round((window.innerWidth / 16) / 1.5),
+    width:  Math.round((window.innerWidth / 16) / 1.75),
     height: Math.round((window.innerHeight / 16) - 2),
     tile: {
       width:  16,
@@ -83,15 +83,10 @@ Crafty.scene('Loading', function(){
 });
 
 Crafty.scene("Main", function () {
-	console.log(exports.Game.map_grid.width);
+	
 	var occupied = new Array(exports.Game.map_grid.width);
-	console.log("w: " + window.innerWidth, "h: " + window.innerHeight);
 	Crafty.audio.play('fight');
-	Crafty.audio.play('backgroundMusic',-1);
-
-	// var gameMusicLoop = setInterval(function () {
-	// 	Crafty.audio.play('backgroundMusic');
-	// },34000);
+	// Crafty.audio.play('backgroundMusic', -1);
 
 	for (var i = 0; i < exports.Game.map_grid.width; i++) {
 
@@ -102,35 +97,42 @@ Crafty.scene("Main", function () {
   		}
 	}
 
-	for (var x = 0; x < exports.Game.map_grid.width; x++) {
-    for (var y = 0; y < exports.Game.map_grid.height; y++) {
-
-	var at_edge = x === 0 || x === exports.Game.map_grid.width - 1 || y === 0 || y === exports.Game.map_grid.height - 1;
-
-      if (at_edge) {
-      	Crafty.e("Trees").at(x, y);
-      	occupied[x][y] = true;
-      } else if (Math.random() < 0.05 && !occupied[x][y]) {
-      	if (x < 4 || y < 4) {
-        		Crafty.e("Bushes").at(x, y);
-      	} else if ((x > 6 && y > 6) && (x < 28 && y < 28)) {
-      		Crafty.e("Bushes").at(x, y);
-      	} else if (x > 32 || y > 32) {
-      		Crafty.e("Bushes").at(x, y);
-      	}
-      }
-    }
-	}
 	// Spawn player 1
 	this.player1 = Crafty.e('Player1').at(5, 5);
-	occupied[this.player1.at().x][this.player1.at().y] = true;
 	// Spawn player 2
-	this.player2 = Crafty.e('Player2').at(30, 30);
+	this.player2 = Crafty.e('Player2').at((exports.Game.map_grid.width - 5), (exports.Game.map_grid.height - 5));
 	occupied[this.player2.at().x][this.player2.at().y] = true;
 
+	for (var x = 4; x <= 7; x++) {
+		for (var y = 4; y<=7; y++) {
+			occupied[x][y] = true;
+		}
+	}
+	for (var x = exports.Game.map_grid.width - 7; x < exports.Game.map_grid.width; x++) {
+		for (var y = exports.Game.map_grid.height - 7; y < exports.Game.map_grid.height; y++) {
+			occupied[x][y] = true;
+		}
+	}
+
+	for (var x = 0; x < exports.Game.map_grid.width; x++) {
+	    
+	    for (var y = 0; y < exports.Game.map_grid.height; y++) {
+
+		var at_edge = x === 0 || x === exports.Game.map_grid.width - 1 || y === 0 || y === exports.Game.map_grid.height - 1;
+
+	      if (at_edge) {
+	      	Crafty.e("Trees").at(x, y);
+	      	occupied[x][y] = true;
+	      } else if (Math.random() < .15 && !occupied[x][y]) {
+	      		Crafty.e("Bushes").at(x, y);
+	      		occupied[x][y] = true;
+	      	}
+	    }
+	}
+	
 	dropInterval = setInterval(function() {
-		var randomX = Math.round(Math.random() * 14) + 10;
-		var randomY = Math.round(Math.random() * 14) + 10;
+		var randomX = Math.round(Math.random() * (exports.Game.map_grid.width / 3) + (exports.Game.map_grid.width / 3));
+		var randomY = Math.round(Math.random() * (exports.Game.map_grid.height / 3) + (exports.Game.map_grid.height / 3));
 
 		if (!occupied[randomX][randomY]) {
 			if (Math.random() <= .2) {
@@ -142,7 +144,7 @@ Crafty.scene("Main", function () {
 			}
 			Crafty.audio.play("dropSound");
 		}
-	},15000);
+	},500);
 });
 
 // VICTORY SCENES
