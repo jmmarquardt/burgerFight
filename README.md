@@ -26,3 +26,9 @@ We have done multiple "eat the burger" web apps academically, and decided to gam
 * John-Mike Marquardt [Github](https://github.com/codemarq) | [jmmarquardt.com](https://www.jmmarquardt.com)  |  [LinkedIn]()
 * Mickey A. Ryan  [Github](https://github.com/MARyan87)  |  [Website](https://michael-ryan-portfolio.herokuapp.com/assignment2/index.html)  |  [LinkedIn](https://www.linkedin.com/in/mickey-ryan-597915a0)
 * Ryan Osterman  [Github](https://github.com/ryanosterman10)  |  [Website]()  |  [LinkedIn](https://www.linkedin.com/in/ryanosterman10)
+
+
+## Copyright & License information
+* [Audio Assets Creative Commons Attribution](https://github.com/codemarq/burgerFight/wiki/Audio-Assets-Licensing-information)
+* [Art Assets]()
+* [This Game]()

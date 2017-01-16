@@ -217,6 +217,9 @@ module.exports = {
       '/assets/sfx/voices/finishHim.m4a',
       '/assets/sfx/voices/finishHim.wav',
       '/assets/sfx/voices/finishHim.mp3'
+    ],
+    gameOver: [
+      '/assets/sfx/voices/gameOver.mp3'
     ]
   }
 };

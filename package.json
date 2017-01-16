@@ -1,21 +1,27 @@
 {
   "name": "burgerfight",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "2D HTML5 Canvas game where Ronald McDonald and the Burger King force each other to eat their burgers.",
-  "main": "app.js",
+  "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "webpack",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MARyan87/burgerFight.git"
+    "url": "https://github.com/codemarq/burgerFight"
   },
-  "author": "",
+  "author": "John-Mike Marquardt, Mickey A. Ryan, Ryan Osterman",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MARyan87/burgerFight/issues"
+    "url": "https://github.com/codemarq/burgerFight/issues"
   },
-  "homepage": "https://github.com/MARyan87/burgerFight#readme",
+  "homepage": "https://github.com/codemarq/burgerFight#readme",
+  "engines": {
+    "node": "4.7.2",
+    "npm": "4.0.5"
+  },
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
