@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MARyan87/burgerFight.git"
+    "url": "https://github.com/codemarq/burgerFight"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MARyan87/burgerFight/issues"
+    "url": "https://github.com/codemarq/burgerFight/issues"
   },
-  "homepage": "https://github.com/MARyan87/burgerFight#readme",
+  "homepage": "https://github.com/codemarq/burgerFight#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
