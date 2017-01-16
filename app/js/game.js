@@ -1,15 +1,15 @@
-var assets = require('./assetObj.js'),
-	components = require('./crafty.components.js'),
-	Ronald = assets.Ronald,
-	King = assets.King,
-	Sprites = assets.sprites,
-	sfx = assets.audio,
-	Actor = components.Actor,
-	Bushes = components.Bushes,
-	Trees = components.Trees,
-	Grid = components.Grid,
-	Player1 = components.Player1,
-	Player2 = components.Player2,
+var assets 		= require('./assetObj.js'),
+	components 	= require('./crafty.components.js'),
+	Ronald 			= assets.Ronald,
+	King 				= assets.King,
+	Sprites 		= assets.sprites,
+	sfx					= assets.audio,
+	Actor 			= components.Actor,
+	Bushes 			= components.Bushes,
+	Trees 			= components.Trees,
+	Grid 				= components.Grid,
+	Player1 		= components.Player1,
+	Player2 		= components.Player2,
 	dropInterval,
 	gameMusicLoop;
 
@@ -43,9 +43,9 @@ Crafty.scene('Loading', function(){
 
   Crafty.e('2D, DOM, Text')
     .text('Loading...')
-    .attr({ x: 0, y: exports.Game.height()/2 - 24, w: exports.Game.width()})
+    .attr({x: 0, y: exports.Game.height()/2 - 24, w: exports.Game.width()})
   	.css({"text-align": "center"})
-  	.css({"font-size": "50px"});
+  	.textFont({size: "50px"});
 
   // Game Audio loaded and declared
 	Crafty.audio.add({
@@ -58,11 +58,14 @@ Crafty.scene('Loading', function(){
 		backgroundMusic: sfx.music,
 		// voices
 		ronaldLaugh: sfx.laugh,
-		hitSound: sfx.hit,
+		hit1: sfx.hit1,
+		hit2: sfx.hit2,
+		hit3: sfx.hit3,
+		yaah: sfx.yaah,
 		finishHim: sfx.finishHim,
 		round1: sfx.round1,
 		fight: sfx.fight,
-		gameOver: sfx.gameOver
+		gameOver: sfx.gameOver,
 	});
 
 	// static game sprites loaded and declared
@@ -161,7 +164,7 @@ Crafty.scene('VictoryRonald', function() {
 	// play this game over sound-ronald victory evil laugh
   Crafty.audio.play("ronaldLaugh");
 	// draw a new game grid with a  black background and ronald gif
-  Crafty.background('#000000  url(/assets/img/gif/ronald_down_throw.gif) no-repeat center center');
+  Crafty.background('#000000 url(/assets/img/gif/ronald_down_throw.gif) no-repeat center center');
 	// Game Over Text
 	Crafty.e('2D, DOM, Text')
 		.text('Player 1 Wins!')
@@ -197,7 +200,7 @@ Crafty.scene('VictoryKing', function() {
 	// play this game over sound-ronald victory evil laugh
 	Crafty.audio.play("gameOver");
 	// draw a new game grid with a  black background and ronald gif
-	Crafty.background('#000000  url(/assets/img/gif/king_down_walk.gif) no-repeat center center');
+	Crafty.background('#000000 url(/assets/img/gif/king_down_walk.gif) no-repeat center center');
 	// Game Over Text
 	Crafty.e('2D, DOM, Text')
 		.text('Player 2 Wins!')
