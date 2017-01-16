@@ -70,8 +70,8 @@ module.exports = {
     init: function() {
       this.requires('Actor')
           .attr({
-            w:15,
-            h:15
+            w:16,
+            h:16
           })
     }
   }),

@@ -17,8 +17,8 @@ var assets = require('./assetObj.js'),
 
 exports.Game = {
   start: function() {
-        Crafty.init(this.width(), this.height(), document.getElementById("game"));
-		Crafty.background('url(/assets/img/sprites/ground-1.png)')
+    Crafty.init(this.width(), this.height(), document.getElementById("game"));
+		Crafty.background('url(/assets/img/sprites/ground-1.png)');
 	 	Crafty.scene("Loading");
   },
   map_grid: {
@@ -87,8 +87,9 @@ Crafty.scene('Loading', function(){
 });
 
 Crafty.scene("Main", function () {
-	
+	Crafty.background('url(/assets/img/sprites/ground-1.png)');
 	var occupied = new Array(exports.Game.map_grid.width);
+	Crafty.audio.stop();
 	Crafty.audio.play('fight');
 	Crafty.audio.play('backgroundMusic', -1);
 
@@ -119,7 +120,7 @@ Crafty.scene("Main", function () {
 	}
 
 	for (var x = 0; x < exports.Game.map_grid.width; x++) {
-	    
+
 	    for (var y = 0; y < exports.Game.map_grid.height; y++) {
 
 		var at_edge = x === 0 || x === exports.Game.map_grid.width - 1 || y === 0 || y === exports.Game.map_grid.height - 1;
@@ -133,7 +134,7 @@ Crafty.scene("Main", function () {
 	      	}
 	    }
 	}
-	
+
 	dropInterval = setInterval(function() {
 		var randomX = Math.round(Math.random() * (exports.Game.map_grid.width / 3) + (exports.Game.map_grid.width / 3));
 		var randomY = Math.round(Math.random() * (exports.Game.map_grid.height / 3) + (exports.Game.map_grid.height / 3));
@@ -155,9 +156,31 @@ Crafty.scene("Main", function () {
 Crafty.scene('VictoryRonald', function() {
   clearInterval(dropInterval);
   clearInterval(gameMusicLoop);
-  Crafty.audio.stop();
+	// clear all playing audio like the background music
+	Crafty.audio.stop();
+	// play this game over sound-ronald victory evil laugh
   Crafty.audio.play("ronaldLaugh");
-  // Crafty.background('url(http://i49.tinypic.com/egd83n.jpg)');
+	// draw a new game grid with a  black background and ronald gif
+  Crafty.background('#000000  url(/assets/img/gif/ronald_down_throw.gif) no-repeat center center');
+	// Game Over Text
+	Crafty.e('2D, DOM, Text')
+		.text('Player 1 Wins!')
+		.attr({
+			x: 0,
+			y: exports.Game.height()/3,
+			w: exports.Game.width(),
+			h: 100
+		})
+		.css({
+			"text-align": "center",
+			"color": "#ffffff",
+			"weight": "bold"
+		})
+		.textFont({
+			size: "40px",
+			family: 'Press Start 2P'
+		});
+
   this.restart_game = this.bind('KeyDown', function() {
     Crafty.scene('Main');
   });
