@@ -184,6 +184,7 @@ Crafty.scene('VictoryRonald', function() {
   this.restart_game = this.bind('KeyDown', function() {
     Crafty.scene('Main');
   });
+
 }, function() {
 	 	this.unbind('KeyDown', this.restart_game);
 });
@@ -191,7 +192,31 @@ Crafty.scene('VictoryRonald', function() {
 Crafty.scene('VictoryKing', function() {
   clearInterval(dropInterval);
   clearInterval(gameMusicLoop);
-  Crafty.audio.stop();
+	// clear all playing audio like the background music
+	Crafty.audio.stop();
+	// play this game over sound-ronald victory evil laugh
+	Crafty.audio.play("gameOver");
+	// draw a new game grid with a  black background and ronald gif
+	Crafty.background('#000000  url(/assets/img/gif/king_down_walk.gif) no-repeat center center');
+	// Game Over Text
+	Crafty.e('2D, DOM, Text')
+		.text('Player 2 Wins!')
+		.attr({
+			x: 0,
+			y: exports.Game.height()/3,
+			w: exports.Game.width(),
+			h: 100
+		})
+		.css({
+			"text-align": "center",
+			"color": "#ffffff",
+			"weight": "bold"
+		})
+		.textFont({
+			size: "40px",
+			family: 'Press Start 2P'
+		});
+
   // Crafty.background('url(http://i49.tinypic.com/egd83n.jpg)');
   this.restart_game = this.bind('KeyDown', function() {
     Crafty.scene('Main');
