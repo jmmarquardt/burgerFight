@@ -194,11 +194,29 @@ module.exports = {
       '/assets/sfx/126113__klankbeeld__laugh.wav',
       '/assets/sfx/126113__klankbeeld__laugh.mp3'
     ],
-    hit: [
-      '/assets/sfx/131657__bertrof__game-sound-wrong.ogg',
-      '/assets/sfx/131657__bertrof__game-sound-wrong.m4a',
-      '/assets/sfx/131657__bertrof__game-sound-wrong.wav',
-      '/assets/sfx/131657__bertrof__game-sound-wrong.mp3'
+    hit1: [
+      '/assets/sfx/voices/hit1.ogg',
+      '/assets/sfx/voices/hit1.m4a',
+      '/assets/sfx/voices/hit1.wav',
+      '/assets/sfx/voices/hit1.mp3'
+    ],
+    hit2: [
+      '/assets/sfx/voices/hit2.ogg',
+      '/assets/sfx/voices/hit2.m4a',
+      '/assets/sfx/voices/hit2.wav',
+      '/assets/sfx/voices/hit2.mp3'
+    ],
+    hit3: [
+      '/assets/sfx/voices/hit3.ogg',
+      '/assets/sfx/voices/hit3.m4a',
+      '/assets/sfx/voices/hit3.wav',
+      '/assets/sfx/voices/hit3.mp3'
+    ],
+    yaah: [
+      '/assets/sfx/voices/yaah.ogg',
+      '/assets/sfx/voices/yaah.m4a',
+      '/assets/sfx/voices/yaah.wav',
+      '/assets/sfx/voices/yaah.mp3',
     ],
     fight: [
       '/assets/sfx/voices/fight.ogg',
