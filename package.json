@@ -2,9 +2,10 @@
   "name": "burgerfight",
   "version": "1.0.0",
   "description": "2D HTML5 Canvas game where Ronald McDonald and the Burger King force each other to eat their burgers.",
-  "main": "app.js",
+  "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
