@@ -17,10 +17,7 @@ var Main = React.createClass({
     return (
       <section>
         <section className="row">
-          <section className="col-md-2"></section>
-          <section className="col-md-8 game-area">
-            <Comments />
-          </section>
+            <Gamescreen />
         </section>
       </section>
 

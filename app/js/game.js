@@ -95,7 +95,7 @@ Crafty.scene("Main", function () {
 	var occupied = new Array(exports.Game.map_grid.width);
 	Crafty.audio.stop();
 	Crafty.audio.play('fight',1,1);
-	// Crafty.audio.play('backgroundMusic', -1, .21);
+	Crafty.audio.play('backgroundMusic', -1, .21);
 
 	for (var i = 0; i < exports.Game.map_grid.width; i++) {
 
