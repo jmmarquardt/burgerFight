@@ -1,15 +1,16 @@
-var assets 		= require('./assetObj.js'),
-	components 	= require('./crafty.components.js'),
-	Ronald 			= assets.Ronald,
-	King 				= assets.King,
-	Sprites 		= assets.sprites,
-	sfx					= assets.audio,
-	Actor 			= components.Actor,
-	Bushes 			= components.Bushes,
-	Trees 			= components.Trees,
-	Grid 				= components.Grid,
-	Player1 		= components.Player1,
-	Player2 		= components.Player2,
+var assets = require('./assetObj.js'),
+	components = require('./crafty.components.js'),
+	axios = require('axios'),
+	Ronald = assets.Ronald,
+	King = assets.King,
+	Sprites = assets.sprites,
+	sfx = assets.audio,
+	Actor = components.Actor,
+	Bushes = components.Bushes,
+	Trees = components.Trees,
+	Grid = components.Grid,
+	Player1 = components.Player1,
+	Player2 = components.Player2,
 	dropInterval,
 	gameMusicLoop;
 
@@ -93,8 +94,8 @@ Crafty.scene("Main", function () {
 	Crafty.background('url(/assets/img/sprites/ground-1.png)');
 	var occupied = new Array(exports.Game.map_grid.width);
 	Crafty.audio.stop();
-	Crafty.audio.play('fight');
-	Crafty.audio.play('backgroundMusic', -1);
+	Crafty.audio.play('fight',1,1);
+	// Crafty.audio.play('backgroundMusic', -1, .21);
 
 	for (var i = 0; i < exports.Game.map_grid.width; i++) {
 
@@ -150,7 +151,7 @@ Crafty.scene("Main", function () {
 			} else if (Math.random() > .6) {
 				Crafty.e("Health").at(randomX, randomY);
 			}
-			Crafty.audio.play("dropSound");
+			Crafty.audio.play("dropSound",1,1);
 		}
 	},15000);
 });
@@ -162,7 +163,7 @@ Crafty.scene('VictoryRonald', function() {
 	// clear all playing audio like the background music
 	Crafty.audio.stop();
 	// play this game over sound-ronald victory evil laugh
-  Crafty.audio.play("ronaldLaugh");
+  Crafty.audio.play("ronaldLaugh",1,1);
 	// draw a new game grid with a  black background and ronald gif
   Crafty.background('#000000 url(/assets/img/gif/ronald_down_throw.gif) no-repeat center center');
 	// Game Over Text
@@ -184,8 +185,10 @@ Crafty.scene('VictoryRonald', function() {
 			family: 'Press Start 2P'
 		});
 
-  this.restart_game = this.bind('KeyDown', function() {
-    Crafty.scene('Main');
+  this.restart_game = this.bind('KeyDown', function(e) {
+  	if (e.key == Crafty.keys["ENTER"]) {
+  		Crafty.scene('Main');
+  	}
   });
 
 }, function() {
@@ -198,7 +201,7 @@ Crafty.scene('VictoryKing', function() {
 	// clear all playing audio like the background music
 	Crafty.audio.stop();
 	// play this game over sound-ronald victory evil laugh
-	Crafty.audio.play("gameOver");
+	Crafty.audio.play("gameOver",1,1);
 	// draw a new game grid with a  black background and ronald gif
 	Crafty.background('#000000 url(/assets/img/gif/king_down_walk.gif) no-repeat center center');
 	// Game Over Text
@@ -221,9 +224,12 @@ Crafty.scene('VictoryKing', function() {
 		});
 
   // Crafty.background('url(http://i49.tinypic.com/egd83n.jpg)');
-  this.restart_game = this.bind('KeyDown', function() {
-    Crafty.scene('Main');
+  this.restart_game = this.bind('KeyDown', function(e) {
+  	if (e.key == Crafty.keys["ENTER"]) {
+  		Crafty.scene('Main');
+  	}
   });
 }, function() {
 	 	this.unbind('KeyDown', this.restart_game);
 });
+

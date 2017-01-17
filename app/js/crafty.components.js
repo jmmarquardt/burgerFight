@@ -105,7 +105,7 @@ module.exports = {
       })
       .onHit('Actor', function(evt) {
         if (evt[0].obj._element.className.indexOf("Drop") !== -1) {
-          Crafty.audio.play("powerUpSound");
+          Crafty.audio.play("powerUpSound",1,1);
           evt[0].obj.destroy();
           drops.getDropType(evt[0].obj, this, module.exports.players);
         }
@@ -117,7 +117,7 @@ module.exports = {
           var burgerX = tween.getTweenDirection(this)[1].x;
           var burgerY = tween.getTweenDirection(this)[1].y;
           // play throw sound
-          Crafty.audio.play('throwSound');
+          Crafty.audio.play('throwSound',1,1);
           // burger sprite
           Crafty.e("Actor, spr_burger, Collision, Tween")
             .attr({
@@ -130,11 +130,12 @@ module.exports = {
               if (evt[0].obj._element.className.indexOf("spr_ronald") === -1) {
                 this.destroy();
                 // play a splat when burger hits a solid
-                Crafty.audio.play("splatSound");
+                Crafty.audio.play("splatSound",1,1);
               }
 
               if (evt[0].type === "SAT" && evt[0].obj._element.className.indexOf("spr_ronald") === -1) {
                 module.exports.players.p2.health--;
+                Crafty.audio.play("yaah",1,1);
                 if (module.exports.players.p2.health <= 0) {
                   evt[0].obj.destroy();
 
@@ -211,7 +212,7 @@ module.exports = {
       })
       .onHit('Actor', function(evt) {
         if (evt[0].obj._element.className.indexOf("Drop") !== -1) {
-          Crafty.audio.play("powerUpSound");
+          Crafty.audio.play("powerUpSound",1,1);
           evt[0].obj.destroy();
           drops.getDropType(evt[0].obj, this, module.exports.players);
         }
@@ -224,7 +225,7 @@ module.exports = {
                 burgerY = tween.getTweenDirection(this)[1].y;
 
             // play throw sound
-            Crafty.audio.play('throwSound');
+            Crafty.audio.play('throwSound',1,1);
             // burger
             Crafty.e("Actor, spr_burger, Collision, Tween")
               .attr({
@@ -236,11 +237,12 @@ module.exports = {
               .onHit('Solid', function (evt) {
                 if (evt[0].obj._element.className.indexOf("spr_king") === -1) {
                   this.destroy();
-                  Crafty.audio.play("splatSound");
+                  Crafty.audio.play("splatSound",1,1);
                 }
 
                 if (evt[0].type === "SAT" && evt[0].obj._element.className.indexOf("spr_king") === -1) {
                   module.exports.players.p1.health--;
+                  Crafty.audio.play("hit2",1,1);
                   if (module.exports.players.p1.health <= 0) {
                     evt[0].obj.destroy();
                     Crafty.scene("VictoryKing");

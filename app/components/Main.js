@@ -1,6 +1,7 @@
 var React  = require("react"),
     Gamescreen = require("./Gamescreen"),
-    PlayerCard = require("./PlayerCard");
+    Comments = require("./Comments");
+    
 
 var Main = React.createClass({
 
@@ -16,13 +17,13 @@ var Main = React.createClass({
     return (
       <section>
         <section className="row">
-          <PlayerCard />
-          <section className="game-area">
-            <Gamescreen />
+          <section className="col-md-2"></section>
+          <section className="col-md-8 game-area">
+            <Comments />
           </section>
-          <PlayerCard />
         </section>
       </section>
+
     );
   }
 });
