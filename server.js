@@ -2,13 +2,9 @@ var express    = require("express"),
     bodyParser = require("body-parser"),
     mongoose   = require("mongoose"),
     app        = express(),
-<<<<<<< 044f10c0dbdbe2b0a1571a03bdf1e14b3f17e05b
-    // stormpath  = require("express-stormpath"),
-    dbRoutes  = require("./routing/db.routes.js");
-=======
+    dbRoutes  = require("./routing/db.routes.js")
     stormpath  = require("express-stormpath"),
     Router     = express.Router();
->>>>>>> stormpath done
 
 var PORT = process.env.PORT || 3000;
 
