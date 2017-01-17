@@ -4,7 +4,7 @@ var Main = React.createClass({
 
   getInitialState: function() {
     return {
-      width: (window.innerWidth - (Math.round((window.innerWidth / 16) / 1.75)))/ 2
+      width: (window.innerWidth - (Math.round((window.innerWidth / 16) / 1.75))) / 5
     };
   },
 
@@ -22,11 +22,11 @@ var Main = React.createClass({
 
   render: function() {
     return (
-      <section>
-        <section className="player-card" style={{width: this.state.width, borderColor: 'red', borderWidth: 2}} >
-        
+      
+        <section className="player-card" style={{width: this.state.width, backgroundColor: 'gray', borderWidth: 2}} >
+          
         </section>
-      </section>
+      
     );
   }
 });
