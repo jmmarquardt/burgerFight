@@ -30,5 +30,5 @@ We have done multiple "eat the burger" web apps academically, and decided to gam
 
 ## Copyright & License information
 * This game uses several sounds from freesound.org, for the full list see here: [Audio Assets Creative Commons Attribution](https://github.com/codemarq/burgerFight/wiki/Audio-Assets-Licensing-information)
-* All in-game art assets (sprites, .gifs and spritesheets) were drawn and animated by John-Mike Marquardt and are free to use under Creative Commons non-Commercial Attribution.
-* [This Game](https://github.com/codemarq/burgerFight) is free to clone or play for academic purposes, or entertainment but not for commercial use or distribution. This game is also covered under [Creative Commons Attribution Non-Commercial license](https://github.com/codemarq/burgerFight/wiki/Creative-Commons-Non-Commercial-Attribution-License)
+* All in-game art assets (sprites, .gifs and spritesheets) were drawn and animated by John-Mike Marquardt and are free to use under [Creative Commons Attribution Non-Commercial license](https://github.com/codemarq/burgerFight/wiki/Creative-Commons-Non-Commercial-Attribution-License).
+* [This Game](https://github.com/codemarq/burgerFight) is free to clone or play for academic purposes, or entertainment but not for commercial use or distribution. This game is also covered under [Creative Commons Attribution Non-Commercial license](https://github.com/codemarq/burgerFight/wiki/Creative-Commons-Non-Commercial-Attribution-License).
