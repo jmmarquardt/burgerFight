@@ -82,14 +82,16 @@ body {
 <video class="video" autoplay="autoplay" loop="loop" muted="" width="300" height="150">
   <source src="css/vid/forest.mp4" type="video/mp4"/>
 </video>
-<a href="/logout"><button type="submit">Logout</button></a>
+
 <div class="homepage">
 	<div class="homepage-content">
 
 		<div class="content">
 			<h1 class="title">The Legend of Ronald: Twilight Burger</h1>
 			<a class="cta" href='/game'>START</a>
-      
+      <form action="/logout" method="POST">
+        <button type="submit">Logout</button>
+      </form>
 		</div>
 
 	</div>
@@ -105,6 +107,8 @@ $(document).ready(function () {
     $(".cta, .title").fadeIn(6000, function () {
 
     });
+
+    $("button")
   
 });
 </script>
