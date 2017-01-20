@@ -1,7 +1,7 @@
 # The Legend of Ronald: Twilight Burger
 2D HTML5 Canvas game where Ronald McDonald and the Burger King force each other to eat their burgers.
 
-[Play Twilight Burger here on Heroku](https://twilightburger.herokuapp.com/game)
+[Play Twilight Burger here on Heroku](https://twilightburger.herokuapp.com/)
 
 ## Screenshot
 ![ScreenShot](./public/assets/img/gif/giphy-tumblr.gif)
