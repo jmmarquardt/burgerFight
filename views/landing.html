@@ -4,98 +4,35 @@
 	<title>Burger</title>
   <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:700" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<style>
-
-html,
-body,
-div,
-h1,
-a,
-video {
-	margin: 0;
-  	padding: 0;
-}
-
-html,
-body {
-  	height: 100%;
-}
-
-body {
-	background-color: #25272a;
-	transition: all 0.3s ease;
-}
-
-.video {
-  	position: fixed;
-  	top: 50%; left: 50%;
-  	z-index: 1;
-  	min-width: 100%;
-  	min-height: 100%;
-  	width: auto;
-  	height: auto;
-  	transform: translate(-50%, -50%);
-}
-
-.content {
-  	position: relative;
-  	z-index: 2;
-  	margin: 0 auto 30px auto;
-  	max-width: 900px;
-  	text-align: center;
-  	top: 150px;
-}
-
-.title{
-	font-family: 'Cinzel Decorative', cursive;
-	font-size: 60px;
-	letter-spacing: 2px;
-  display: none;
-	color: white;
-	text-shadow: 5px 5px 15px black;
-	margin-bottom: 60px; 
-}
-
-.cta {
-  	font-family: 'Cinzel Decorative', cursive;
-  	display: inline-block;
-  	margin: 0;
-  	padding: 12px 48px;
-  	color: white;
-    display: none;
-  	font-size: 35px;
-  	text-decoration: none;
-  	border: 5px solid white;
-  	border-radius: 5px;
-}
-
-.cta:hover {
-	/*transition: all 0.3s ease;*/
-    box-shadow: inset 0 0 0 5px white;
-}
-
-</style>
+	<link href="css/landing.css" rel="stylesheet" />
 </head>
 
 <body>
+	<!-- video background -->
+	<video class="video" autoplay="autoplay" loop="loop" muted="" width="300" height="150">
+	  <source src="assets/vid/forest.mp4" type="video/mp4"/>
+	</video>
+	<!-- audio-zelda chime -->
+	<audio>
+		<source src="assets/sfx/loz_slow.mp3" type="audio/mp3">
+		<source src="assets/sfx/loz_slow.m4a" type="audio/m4a">
+		<source src="assets/sfx/loz_slow.wav" type="audio/wav">
+		<source src="assets/sfx/loz_slow.ogg" type="audio/ogg">
+	</audio>
+	
+	<div class="homepage">
+		<div class="homepage-content">
 
-<video class="video" autoplay="autoplay" loop="loop" muted="" width="300" height="150">
-  <source src="css/vid/forest.mp4" type="video/mp4"/>
-</video>
+			<div class="content">
+				<h1 class="title">The Legend of Ronald: Twilight Burger</h1>
+				<a class="cta" href='/game'>START</a>
+	      <form action="/logout" method="POST">
+	        <button type="submit">Logout</button>
+	      </form>
+			</div>
 
-<div class="homepage">
-	<div class="homepage-content">
-
-		<div class="content">
-			<h1 class="title">The Legend of Ronald: Twilight Burger</h1>
-			<a class="cta" href='/game'>START</a>
-      <form action="/logout" method="POST">
-        <button type="submit">Logout</button>
-      </form>
 		</div>
-
 	</div>
-</div>
 
 </body>
 
@@ -103,12 +40,12 @@ body {
 <script>
 
 $(document).ready(function () {
-  
+
     $(".cta, .title").fadeIn(6000, function () {
 
     });
 
     $("button")
-  
+
 });
 </script>

@@ -157,7 +157,9 @@ module.exports = {
         happyMeal.frame.h
       ]
   },
+  // audio assets
   audio: {
+    // sound effects
     throw: [
       '/assets/sfx/tomahawk_axe_throw_whoosh.ogg',
       '/assets/sfx/tomahawk_axe_throw_whoosh.m4a',
@@ -182,12 +184,20 @@ module.exports = {
       '/assets/sfx/263655__pan14__upward-beep-chromatic-fifths.wav',
       '/assets/sfx/263655__pan14__upward-beep-chromatic-fifths.mp3'
     ],
+    // music
     music: [
       '/assets/sfx/251461__joshuaempyre__arcade-music-loop.ogg',
       '/assets/sfx/251461__joshuaempyre__arcade-music-loop.m4a',
       '/assets/sfx/251461__joshuaempyre__arcade-music-loop.wav',
       '/assets/sfx/251461__joshuaempyre__arcade-music-loop.mp3'
     ],
+    lozChime: [
+      'assets/sfx/loz_slow.ogg',
+      'assets/sfx/loz_slow.m4a',
+      'assets/sfx/loz_slow.wav',
+      'assets/sfx/loz_slow.mp3'
+    ],
+    // voices
     laugh: [
       '/assets/sfx/126113__klankbeeld__laugh.ogg',
       '/assets/sfx/126113__klankbeeld__laugh.m4a',
