@@ -1,7 +1,6 @@
-var React  = require("react"),
+var React      = require("react"),
     Gamescreen = require("./Gamescreen"),
-    Comments = require("./Comments");
-
+    Comments   = require("./Comments");
 
 var Main = React.createClass({
 
