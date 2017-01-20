@@ -13,13 +13,13 @@
 	  <source src="assets/vid/forest.mp4" type="video/mp4"/>
 	</video>
 	<!-- audio-zelda chime -->
-	<audio>
+	<audio id="landingAudio">
 		<source src="assets/sfx/loz_slow.mp3" type="audio/mp3">
 		<source src="assets/sfx/loz_slow.m4a" type="audio/m4a">
 		<source src="assets/sfx/loz_slow.wav" type="audio/wav">
 		<source src="assets/sfx/loz_slow.ogg" type="audio/ogg">
 	</audio>
-	
+
 	<div class="homepage">
 		<div class="homepage-content">
 
@@ -40,7 +40,7 @@
 <script>
 
 $(document).ready(function () {
-
+		$("#landingAudio").get(0).play();
     $(".cta, .title").fadeIn(6000, function () {
 
     });
