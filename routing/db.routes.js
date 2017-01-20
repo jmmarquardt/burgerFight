@@ -1,7 +1,13 @@
 var mongoose = require("mongoose"),
 	Comments = require("../models/Comments.js"),
 	express  = require("express"),
+	stormpath = require("express-stormpath"),
 	Router   = express.Router();
+	// Router.use(stormpath.loginRequired);
+
+var options = {
+    root:__dirname + "/../views/"
+};
 
 Router.post("/postDB", function (req, res) {
 	var sizes = [10, 15, 15, 15, 20, 30, 40, 50, 60, 80, 100],
@@ -22,6 +28,18 @@ Router.get("/getDB", function (req, res) {
 	.exec(function(err, comments) {
 		res.json(comments);
 	});
+});
+
+Router.get("/", function (req, res) {
+	res.redirect("/login");
+});
+
+Router.get("/landing", function (req, res) {
+	res.sendFile("landing.html", options);
+});
+
+Router.get("/game", function (req, res) {
+	res.sendFile("index.html", options);
 });
 
 module.exports = Router;

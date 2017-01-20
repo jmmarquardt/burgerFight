@@ -33,7 +33,7 @@ app.use(stormpath.init(app, {
   website: true,
   web: {
     login: {
-      nextUri: '/'
+      nextUri: '/landing'
     }
   }
 }));
