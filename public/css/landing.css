@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Burger</title>
-  <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:700" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<style>
-
 html,
 body,
 div,
@@ -73,39 +65,3 @@ body {
 	/*transition: all 0.3s ease;*/
     box-shadow: inset 0 0 0 5px white;
 }
-
-</style>
-</head>
-
-<body>
-
-<video class="video" autoplay="autoplay" loop="loop" muted="" width="300" height="150">
-  <source src="assets/vid/forest.mp4" type="video/mp4"/>
-</video>
-<audio src="assets/sfx/loz_slow.mp3"></audio>
-<a href="/logout"><button type="submit">Logout</button></a>
-<div class="homepage">
-	<div class="homepage-content">
-
-		<div class="content">
-			<h1 class="title">The Legend of Ronald: Twilight Burger</h1>
-			<a class="cta" href='/game'>START</a>
-
-		</div>
-
-	</div>
-</div>
-
-</body>
-
-</html>
-<script>
-
-$(document).ready(function () {
-
-    $(".cta, .title").fadeIn(6000, function () {
-
-    });
-
-});
-</script>
