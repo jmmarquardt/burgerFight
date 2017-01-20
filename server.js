@@ -1,13 +1,13 @@
-var express    = require("express"),
-    bodyParser = require("body-parser"),
-    mongoose   = require("mongoose"),
-    app        = express(),
-    dbRoutes  = require("./routing/db.routes.js")
-    stormpath  = require("express-stormpath"),
-    Router     = express.Router();
+var express     = require("express"),
+    bodyParser  = require("body-parser"),
+    mongoose    = require("mongoose"),
+    app         = express(),
+    dbRoutes    = require("./routing/db.routes.js")
+    stormpath   = require("express-stormpath"),
+    Router      = express.Router(),
+    PORT        = process.env.PORT || 3000;
 
-var PORT = process.env.PORT || 3000;
-
+// mongo db middleware
 mongoose.connect("mongodb://localhost/LOR:TB");
 var db = mongoose.connection;
 
@@ -18,6 +18,7 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
+// express
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
@@ -34,6 +35,10 @@ app.use(stormpath.init(app, {
   web: {
     login: {
       nextUri: '/landing'
+    },
+    logout: {
+      enabled: true,
+      nextUri: '/login'
     }
   }
 }));

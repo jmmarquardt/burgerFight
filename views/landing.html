@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Burger</title>
   <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:700" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<link href="css/landing.css" rel="stylesheet" />
 </head>
-
 <body>
 	<!-- video background -->
 	<video class="video" autoplay="autoplay" loop="loop" muted="" width="300" height="150">
@@ -14,10 +13,10 @@
 	</video>
 	<!-- audio-zelda chime -->
 	<audio id="landingAudio">
-		<source src="assets/sfx/loz_slow.mp3" type="audio/mp3">
-		<source src="assets/sfx/loz_slow.m4a" type="audio/m4a">
-		<source src="assets/sfx/loz_slow.wav" type="audio/wav">
-		<source src="assets/sfx/loz_slow.ogg" type="audio/ogg">
+		<source src="assets/sfx/loz_slow.mp3" type="audio/mp3"/>
+		<source src="assets/sfx/loz_slow.m4a" type="audio/m4a"/>
+		<source src="assets/sfx/loz_slow.wav" type="audio/wav"/>
+		<source src="assets/sfx/loz_slow.ogg" type="audio/ogg"/>
 	</audio>
 
 	<div class="homepage">
@@ -27,7 +26,7 @@
 				<h1 class="title">The Legend of Ronald: Twilight Burger</h1>
 				<a class="cta" href='/game'>START</a>
 	      <form action="/logout" method="POST">
-	        <button type="submit">Logout</button>
+	        <button type="submit" class="cta">Logout</button>
 	      </form>
 			</div>
 
@@ -35,17 +34,11 @@
 	</div>
 
 </body>
-
 </html>
 <script>
-
-$(document).ready(function () {
-		$("#landingAudio").get(0).play();
-    $(".cta, .title").fadeIn(6000, function () {
-
-    });
-
-    $("button")
-
-});
+	// play audio and fade in title
+	$(document).ready(function () {
+			$("#landingAudio").get(0).play();
+	    $(".cta, .title").fadeIn(6000, function (){});
+	});
 </script>

@@ -3,12 +3,12 @@ var mongoose = require("mongoose"),
 	express  = require("express"),
 	stormpath = require("express-stormpath"),
 	Router   = express.Router();
-	// Router.use(stormpath.loginRequired);
 
 var options = {
     root:__dirname + "/../views/"
 };
 
+// db goutes
 Router.post("/postDB", function (req, res) {
 	var sizes = [10, 15, 15, 15, 20, 30, 40, 50, 60, 80, 100],
 		doc = {
@@ -30,6 +30,7 @@ Router.get("/getDB", function (req, res) {
 	});
 });
 
+// page and login routes
 Router.get("/", function (req, res) {
 	res.redirect("/login");
 });
