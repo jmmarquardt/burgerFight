@@ -38,6 +38,8 @@ h1 {
 .playercard {
 	font-family: "Press Start 2P";
 	height: 100%;
+	background-color: #008e17 !important;
+	color: #ffffff !important;
 	display: inline-block;
 	text-align: center;
 }
