@@ -21,7 +21,7 @@ Router.post("/postDB", function (req, res) {
 	newComment.save(function (err, data) {
 		console.log("data: ", data);
 	});
-	res.send("success");
+	res.redirect("comments.html", options);
 });
 
 Router.get("/getDB", function (req, res) {
