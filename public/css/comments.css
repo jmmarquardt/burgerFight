@@ -1,0 +1,55 @@
+.video {
+	position: fixed;
+	top: 50%; left: 50%;
+	z-index: -1;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	transform: translate(-50%, -50%);
+}
+
+form {
+	position: relative;
+	top: 50%;
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	margin: auto;
+}
+
+input {
+	text-align: center;
+	color: gray !important;
+}
+
+#comment-button {
+	border-radius: 5px;
+	color: white;
+	background: none;
+	box-shadow: 6px 10px 100px 34px black;
+	border: 5px solid white;
+	font-family: 'Cinzel Decorative', cursive;
+	font-size: 25px;
+	background-color: none;
+}
+
+.cta {
+	font-family: 'Cinzel Decorative', cursive;
+	display: inline-block;
+	margin: 0;
+	margin-bottom: 25px;
+	padding: 12px 48px;
+	color: white;
+	font-size: 25px;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+.content {
+	position: relative;
+	z-index: 2;
+	margin: 50px auto 0 auto;
+	max-width: 900px;
+	text-align: center;
+}

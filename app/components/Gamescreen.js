@@ -1,5 +1,4 @@
 var React       = require("react"),
-    PlayerCard  = require("./PlayerCard"),
     gameLogic   = require("./../js/game.js"),
     players     = require("./../js/crafty.components.js");
 

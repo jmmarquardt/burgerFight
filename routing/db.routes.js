@@ -43,4 +43,8 @@ Router.get("/game", function (req, res) {
 	res.sendFile("index.html", options);
 });
 
+Router.get("/comments", function (req, res) {
+	res.sendFile("comments.html", options);
+})
+
 module.exports = Router;
