@@ -153,7 +153,7 @@ Crafty.scene("Main", function () {
 			}
 			Crafty.audio.play("dropSound",1,1);
 		}
-	},1000);
+	},15000);
 });
 
 // VICTORY SCENES
