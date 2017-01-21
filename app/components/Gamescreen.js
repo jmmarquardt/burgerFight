@@ -26,9 +26,9 @@ var Gamescreen  = React.createClass({
   render: function() {
     return (
       <div style={{display: "flex", position: "fixed", top: "50%", left: "50%", transform: "translate(-50%,-50%)"}}>
-        <PlayerCard />
+        
         <div id="game"></div>
-        <PlayerCard />
+        
       </div>
     );
   }

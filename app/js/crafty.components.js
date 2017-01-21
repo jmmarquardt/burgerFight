@@ -3,9 +3,28 @@ var Game = require('./game.js'),
     drops = require('./drops.js'),
     tween = require('./tween.js'),
     Ronald = assets.Ronald,
-    King = assets.King;
+    King = assets.King,
+    cardWidth = (window.innerWidth - (Math.round((window.innerWidth / 16) / 1.75))) / 5
+    console.log(cardWidth);
+    
+    
+
+$('.playercard').width(cardWidth);
+$('.playercard').css("background-color", "gray");
+$("#ronald").append("<h1>Ronald M.</h1>");
+$("#king").append("<h1>B. King</h1>");
+$(".playercard").append("<div class='heartContainer'></div>");
+for (var i=0; i<3; i++) {
+  $(".heartContainer").append("<img class='img img-responsive healthHeart' src='/assets/img/heart.png'>");
+}
+
+$(".playercard").append("<h3 class='ammoContainer'>Ammo: <span class='ammoVal'></span></h3>");
+$("#ronald").append("<h5 class='bigBurger'>Big Burgers: <span class='powerVal'></span></h5>");
+$("#king").append("<h5 class='bigBurger'>Big Burgers: <span class='powerVal'></span></h5>");
+
 
 module.exports = {
+  cardWidth: cardWidth,
   players: {
     p1 : {
       ammo: 10,
@@ -117,6 +136,7 @@ module.exports = {
           var burgerX = tween.getTweenDirection(this)[1].x;
           var burgerY = tween.getTweenDirection(this)[1].y;
           // play throw sound
+          
           Crafty.audio.play('throwSound',1,1);
           // burger sprite
           Crafty.e("Actor, spr_burger, Collision, Tween")
@@ -135,6 +155,7 @@ module.exports = {
 
               if (evt[0].type === "SAT" && evt[0].obj._element.className.indexOf("spr_ronald") === -1) {
                 module.exports.players.p2.health--;
+                $("#king .heartContainer .healthHeart").last().remove();
                 Crafty.audio.play("yaah",1,1);
                 if (module.exports.players.p2.health <= 0) {
                   evt[0].obj.destroy();
@@ -156,12 +177,16 @@ module.exports = {
             if (module.exports.players.p1.powerUp) {
               if (module.exports.players.p1.powerCounter > 1) {
                 module.exports.players.p1.powerCounter--;
+                $("#ronald .powerVal").html(module.exports.players.p1.powerCounter);
               } else {
                 module.exports.players.p1.powerUp = false;
                 module.exports.players.p1.powerCounter--;
+                $("#ronald .powerVal").html(module.exports.players.p1.powerCounter);
+                $("#ronald .bigBurger").css("display", "none");
               }
             } else {
               module.exports.players.p1.ammo--;
+              $("#ronald .ammoVal").html(module.exports.players.p1.ammo);
             }
         }
       })
@@ -242,6 +267,8 @@ module.exports = {
 
                 if (evt[0].type === "SAT" && evt[0].obj._element.className.indexOf("spr_king") === -1) {
                   module.exports.players.p1.health--;
+                  $("#ronald .heartContainer .healthHeart").last().remove();
+
                   Crafty.audio.play("hit2",1,1);
                   if (module.exports.players.p1.health <= 0) {
                     evt[0].obj.destroy();
@@ -262,12 +289,16 @@ module.exports = {
               if (module.exports.players.p2.powerUp) {
                 if (module.exports.players.p2.powerCounter > 1) {
                   module.exports.players.p2.powerCounter--;
+                  $("#king .powerVal").html(module.exports.players.p2.powerCounter);
                 } else {
                   module.exports.players.p2.powerUp = false;
-                  module.exports.players.p2.powerCounter--;
+                  module.exports.players.p2.powerCounter = 0;
+                  $("#king .powerVal").html(module.exports.players.p2.powerCounter);
+                  $("#king .bigBurger").css("display", "none");
                 }
               } else {
                 module.exports.players.p2.ammo--;
+                $("#king .ammoVal").html(module.exports.players.p2.ammo);
               }
           }
         }
@@ -310,3 +341,5 @@ module.exports = {
     }
   })
 }
+$("#ronald .ammoVal").html(module.exports.players.p1.ammo);
+$("#king .ammoVal").html(module.exports.players.p2.ammo);
