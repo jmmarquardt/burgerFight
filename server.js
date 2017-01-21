@@ -8,7 +8,7 @@ var express     = require("express"),
     PORT        = process.env.PORT || 3000;
 
 // mongo db middleware
-mongoose.connect("mongodb://localhost/LOR:TB");
+mongoose.connect("mongodb://heroku_d3clnhwm:m0g7le97n8pqmlf8acknir3ok7@ds117899.mlab.com:17899/heroku_d3clnhwm");
 var db = mongoose.connection;
 
 db.on("error", function(error) {

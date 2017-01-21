@@ -153,7 +153,7 @@ Crafty.scene("Main", function () {
 			}
 			Crafty.audio.play("dropSound",1,1);
 		}
-	},15000);
+	},1000);
 });
 
 // VICTORY SCENES
@@ -167,6 +167,8 @@ Crafty.scene('VictoryRonald', function() {
   }
   $("#ronald .ammoVal").html("10");
   $("#king .ammoVal").html("10");
+  $(".powerVal").html("0");
+  $(".bigBurger").css("display", "none");
 	// clear all playing audio like the background music
 	Crafty.audio.stop();
 	// play this game over sound-ronald victory evil laugh
@@ -212,6 +214,8 @@ Crafty.scene('VictoryKing', function() {
   }
   $("#ronald .ammoVal").html("10");
   $("#king .ammoVal").html("10");
+  $(".powerVal").html("0");
+  $(".bigBurger").css("display", "none");
 	// clear all playing audio like the background music
 	Crafty.audio.stop();
 	// play this game over sound-ronald victory evil laugh
