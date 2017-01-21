@@ -9,11 +9,11 @@ var Main = React.createClass({
   },
 
   componentDidMount: function() {
-    console.log("component mounted");
-    console.log((window.innerWidth - (Math.round((window.innerWidth / 16) / 1.75)))/ 2);
-    var p_card = document.getElementsByClassName("player-card");
-    console.log(p_card);
-    var width = (window.innerWidth - (Math.round((window.innerWidth / 16) / 1.75)))/ 2;
+    // console.log("component mounted");
+    // console.log((window.innerWidth - (Math.round((window.innerWidth / 16) / 1.75)))/ 2);
+    // var p_card = document.getElementsByClassName("player-card");
+    // console.log(p_card);
+    // var width = (window.innerWidth - (Math.round((window.innerWidth / 16) / 1.75)))/ 2;
   },
 
   componentDidUpdate: function() {

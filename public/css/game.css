@@ -1,12 +1,47 @@
-body{
+body, html{
 	background-color: black;
+	height: 100%;
 }
 #game {
 	/*background-image: url('../img/top-view-roundabout-vector.jpg');*/
 	margin: 0 auto;
+	float: left;
 }
-.playerCard{
-	height: 100px;
-	width: 100px;
-	background-color: red;
+
+h1 {
+	word-wrap: break-word;
+	margin-bottom: 50px;
+}
+
+.ammoContainer {
+	margin-bottom: 30px;
+}
+
+.bigBurger {
+	display: none;
+}
+
+#app {
+	float: left;
+}
+.heartContainer {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 50px;
+}
+
+.healthHeart {
+	width: 25%;
+	height: 25%;
+}
+
+.playercard {
+	font-family: "Press Start 2P";
+	height: 100%;
+	display: inline-block;
+	text-align: center;
+}
+
+#king {
+	float: right;
 }
