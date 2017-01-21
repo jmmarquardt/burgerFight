@@ -10,7 +10,8 @@ var options = {
 
 // db goutes
 Router.post("/postDB", function (req, res) {
-	var sizes = [10, 15, 15, 15, 20, 30, 40, 50, 60, 80, 100],
+	console.log("got here: ", req.body);
+	var sizes = [40, 80, 60, 30, 20, 30, 40, 50, 60, 80, 100],
 		doc = {
 			comment: req.body.comment,
 			size: sizes[Math.round(Math.random() * 11)]

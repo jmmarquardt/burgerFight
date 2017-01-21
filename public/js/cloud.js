@@ -1,6 +1,4 @@
 
-function getWords() {
-  
   $.get("/getDB").then(function (response) {
         console.log(response);
         var frequency_list = [];
@@ -45,10 +43,6 @@ function getWords() {
             .text(function(d) { return d.text; });
         }
       })
-}
-getWords();
 
-$("#comment-button").click(function (e) {
-  e.preventDefault();
-  location.reload();
-});
+
+

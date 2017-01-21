@@ -18,6 +18,12 @@ form {
 	margin: auto;
 }
 
+svg {
+	width: 50%;
+	position: absolute;
+	right: 25%;
+}
+
 input {
 	text-align: center;
 	color: gray !important;
