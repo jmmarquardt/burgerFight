@@ -30,6 +30,8 @@ body {
 }
 
 .content {
+	display: flex;
+	flex-direction: column;
 	position: relative;
 	z-index: 2;
 	margin: 0 auto 30px auto;
@@ -38,11 +40,15 @@ body {
 	top: 150px;
 }
 
+.control-width {
+	max-width: 100px;
+}
+
 .title{
 	font-family: 'Cinzel Decorative', cursive;
 	font-size: 60px;
 	letter-spacing: 2px;
-  display: none;
+  	display: none;
 	color: white;
 	text-shadow: 5px 5px 15px black;
 	margin-bottom: 60px;
@@ -52,9 +58,10 @@ body {
 	font-family: 'Cinzel Decorative', cursive;
 	display: inline-block;
 	margin: 0;
+	margin-bottom: 25px;
 	padding: 12px 48px;
 	color: white;
-  display: none;
+  	display: none;
 	font-size: 35px;
 	text-decoration: none;
 	border: 5px solid white;
