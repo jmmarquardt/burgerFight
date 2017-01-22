@@ -36,6 +36,7 @@ exports.getDropType = function (evtObj, player, playersObj) {
 			console.log(playersObj.p1.health);
 		} else if (player._element.className.indexOf("spr_king") !== -1) {
 			playersObj.p2.health = 3;
+			$("#king .heartContainer").empty();
 			for (var i=0; i<3; i++) {
 				$("#king .heartContainer").append("<img class='img img-responsive healthHeart' src='/assets/img/heart.png'>");
 			}

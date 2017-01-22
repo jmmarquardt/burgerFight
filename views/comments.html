@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Comments</title>
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:700" rel="stylesheet">
+    <script src="js/d3.layout.cloud.js"></script>
+    <script src="js/cloud.js"></script>
+    <link href="css/comments.css" rel="stylesheet" />
+</head>
+<body>
+	<video class="video" autoplay="autoplay" loop="loop" muted="" width="300" height="150">
+	  <source src="assets/vid/forest.mp4" type="video/mp4"/>
+	</video>
+	<section class="content">
+		<form action="/postDB" method="POST">
+			<label class="cta" for="comment">Did you enjoy your burger?</label>
+			<input class="cta" name="comment" id="comment" type="text" placeholder="One word...">
+			<button id="comment-button" type="submit">Eat the Burger</button>
+		</form>
+	</section>
+</body>
+</html>

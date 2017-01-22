@@ -10,7 +10,8 @@ var options = {
 
 // db goutes
 Router.post("/postDB", function (req, res) {
-	var sizes = [10, 15, 15, 15, 20, 30, 40, 50, 60, 80, 100],
+	console.log("got here: ", req.body);
+	var sizes = [40, 80, 60, 30, 20, 30, 40, 50, 60, 80, 100],
 		doc = {
 			comment: req.body.comment,
 			size: sizes[Math.round(Math.random() * 11)]
@@ -20,6 +21,7 @@ Router.post("/postDB", function (req, res) {
 	newComment.save(function (err, data) {
 		console.log("data: ", data);
 	});
+	res.redirect("comments.html", options);
 });
 
 Router.get("/getDB", function (req, res) {
@@ -42,5 +44,9 @@ Router.get("/landing", function (req, res) {
 Router.get("/game", function (req, res) {
 	res.sendFile("index.html", options);
 });
+
+Router.get("/comments", function (req, res) {
+	res.sendFile("comments.html", options);
+})
 
 module.exports = Router;

@@ -160,6 +160,15 @@ Crafty.scene("Main", function () {
 Crafty.scene('VictoryRonald', function() {
   clearInterval(dropInterval);
   clearInterval(gameMusicLoop);
+  $("#ronald .heartContainer").empty();
+  $("#king .heartContainer").empty();
+  for (var i=0; i<3; i++) {
+  	$(".heartContainer").append("<img class='img img-responsive healthHeart' src='/assets/img/heart.png'>");
+  }
+  $("#ronald .ammoVal").html("10");
+  $("#king .ammoVal").html("10");
+  $(".powerVal").html("0");
+  $(".bigBurger").css("display", "none");
 	// clear all playing audio like the background music
 	Crafty.audio.stop();
 	// play this game over sound-ronald victory evil laugh
@@ -198,6 +207,15 @@ Crafty.scene('VictoryRonald', function() {
 Crafty.scene('VictoryKing', function() {
   clearInterval(dropInterval);
   clearInterval(gameMusicLoop);
+  $("#ronald .heartContainer").empty();
+  $("#king .heartContainer").empty();
+  for (var i=0; i<3; i++) {
+  	$(".heartContainer").append("<img class='img img-responsive healthHeart' src='/assets/img/heart.png'>");
+  }
+  $("#ronald .ammoVal").html("10");
+  $("#king .ammoVal").html("10");
+  $(".powerVal").html("0");
+  $(".bigBurger").css("display", "none");
 	// clear all playing audio like the background music
 	Crafty.audio.stop();
 	// play this game over sound-ronald victory evil laugh
