@@ -6,11 +6,11 @@ var Game = require('./game.js'),
     King = assets.King,
     cardWidth = (window.innerWidth - (Math.round((window.innerWidth / 16) / 1.75))) / 5
     console.log(cardWidth);
-    
-    
+
+
 
 $('.playercard').width(cardWidth);
-$('.playercard').css("background-color", "gray");
+
 $("#ronald").append("<h1>Ronald M.</h1>");
 $("#king").append("<h1>B. King</h1>");
 $(".playercard").append("<div class='heartContainer'></div>");
@@ -19,8 +19,9 @@ for (var i=0; i<3; i++) {
 }
 
 $(".playercard").append("<h3 class='ammoContainer'>Ammo: <span class='ammoVal'></span></h3>");
-$("#ronald").append("<h5 class='bigBurger'>Big Burgers: <span class='powerVal'></span></h5>");
-$("#king").append("<h5 class='bigBurger'>Big Burgers: <span class='powerVal'></span></h5>");
+$("#ronald").append("<h4 class='bigBurger'>Big Burgers: <span class='powerVal'></span></h4>");
+
+$("#king").append("<h4 class='bigBurger'>Big Burgers: <span class='powerVal'></span></h4>");
 
 
 module.exports = {
@@ -136,7 +137,7 @@ module.exports = {
           var burgerX = tween.getTweenDirection(this)[1].x;
           var burgerY = tween.getTweenDirection(this)[1].y;
           // play throw sound
-          
+
           Crafty.audio.play('throwSound',1,1);
           // burger sprite
           Crafty.e("Actor, spr_burger, Collision, Tween")

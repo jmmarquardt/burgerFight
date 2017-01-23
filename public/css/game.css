@@ -11,6 +11,7 @@ body, html{
 h1 {
 	word-wrap: break-word;
 	margin-bottom: 50px;
+	text-align: center;
 }
 
 .ammoContainer {
@@ -33,12 +34,14 @@ h1 {
 .healthHeart {
 	width: 25%;
 	height: 25%;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .playercard {
 	font-family: "Press Start 2P";
 	height: 100%;
-	background-color: #008e17 !important;
+	background-color: #000000 !important;
 	color: #ffffff !important;
 	display: inline-block;
 	text-align: center;

@@ -26,11 +26,14 @@
   },
   // tree
   tree: {
-
+    treeGreen: '#00661e'
+    hunterGreen: '#004414'
+    veryDarkGreen:'#002d0d'
   },
   // bushes
   bush: {
-
+    darkGreen: '#008e17'
+    lightGreen: '#62f759'
   },
   heart: {
     blue: '#67ebff'
