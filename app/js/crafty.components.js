@@ -4,7 +4,7 @@ var Game = require('./game.js'),
     tween = require('./tween.js'),
     Ronald = assets.Ronald,
     King = assets.King,
-    cardWidth = (window.innerWidth - (Math.round((window.innerWidth / 16) / 1.75))) / 5
+    cardWidth = (window.innerWidth - (Math.round((window.innerWidth / 16) / 1.75))) / 5;
     console.log(cardWidth);
 
 
@@ -19,9 +19,9 @@ for (var i=0; i<3; i++) {
 }
 
 $(".playercard").append("<h3 class='ammoContainer'>Ammo: <span class='ammoVal'></span></h3>");
-$("#ronald").append("<h4 class='bigBurger'>Big Burgers: <span class='powerVal'></span></h4>");
+$("#ronald").append("<h5 class='bigBurger'>Big Burgers: <span class='powerVal'></span></h5>");
 
-$("#king").append("<h4 class='bigBurger'>Big Burgers: <span class='powerVal'></span></h4>");
+$("#king").append("<h5 class='bigBurger'>Big Burgers: <span class='powerVal'></span></h5>");
 
 
 module.exports = {
@@ -270,7 +270,7 @@ module.exports = {
                   module.exports.players.p1.health--;
                   $("#ronald .heartContainer .healthHeart").last().remove();
 
-                  Crafty.audio.play("hit2",1,1);
+                  Crafty.audio.play("hit3",1,1);
                   if (module.exports.players.p1.health <= 0) {
                     evt[0].obj.destroy();
                     Crafty.scene("VictoryKing");
