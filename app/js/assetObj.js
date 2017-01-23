@@ -102,60 +102,60 @@ module.exports = {
   },
   // our static sprites
   sprites: {
-      spr_ronald: [
-        ronald.frame.x,
-        ronald.frame.y,
-        ronald.frame.w,
-        ronald.frame.h
-      ],
-      spr_king: [
-        king.frame.x,
-        king.frame.y,
-        king.frame.w,
-        king.frame.h
-      ],
-      spr_bush: [
-        bush.frame.x,
-        bush.frame.y,
-        bush.frame.w,
-        bush.frame.h
-      ],
-  	  spr_tree: [
-        tree.frame.x,
-        tree.frame.y,
-        tree.frame.w,
-        tree.frame.h
-      ],
-      spr_ground: [
-        ground.frame.x,
-        ground.frame.y,
-        ground.frame.w,
-        ground.frame.h
-      ],
-      spr_burger: [
-        burger.frame.x,
-        burger.frame.y,
-        burger.frame.w,
-        burger.frame.h
-      ],
-      spr_heart: [
-        heart.frame.x,
-        heart.frame.y,
-        heart.frame.w,
-        heart.frame.h
-      ],
-      spr_bigBurger: [
-        bigBurger.frame.x,
-        bigBurger.frame.y,
-        bigBurger.frame.w,
-        bigBurger.frame.h
-      ],
-      spr_happyMeal: [
-        happyMeal.frame.x,
-        happyMeal.frame.y,
-        happyMeal.frame.w,
-        happyMeal.frame.h
-      ]
+    spr_ronald: [
+      ronald.frame.x,
+      ronald.frame.y,
+      ronald.frame.w,
+      ronald.frame.h
+    ],
+    spr_king: [
+      king.frame.x,
+      king.frame.y,
+      king.frame.w,
+      king.frame.h
+    ],
+    spr_bush: [
+      bush.frame.x,
+      bush.frame.y,
+      bush.frame.w,
+      bush.frame.h
+    ],
+	  spr_tree: [
+      tree.frame.x,
+      tree.frame.y,
+      tree.frame.w,
+      tree.frame.h
+    ],
+    spr_ground: [
+      ground.frame.x,
+      ground.frame.y,
+      ground.frame.w,
+      ground.frame.h
+    ],
+    spr_burger: [
+      burger.frame.x,
+      burger.frame.y,
+      burger.frame.w,
+      burger.frame.h
+    ],
+    spr_heart: [
+      heart.frame.x,
+      heart.frame.y,
+      heart.frame.w,
+      heart.frame.h
+    ],
+    spr_bigBurger: [
+      bigBurger.frame.x,
+      bigBurger.frame.y,
+      bigBurger.frame.w,
+      bigBurger.frame.h
+    ],
+    spr_happyMeal: [
+      happyMeal.frame.x,
+      happyMeal.frame.y,
+      happyMeal.frame.w,
+      happyMeal.frame.h
+    ]
   },
   // audio assets
   audio: {
@@ -247,6 +247,9 @@ module.exports = {
       '/assets/sfx/voices/finishHim.mp3'
     ],
     gameOver: [
+      '/assets/sfx/voices/gameOver.ogg',
+      '/assets/sfx/voices/gameOver.m4a',
+      '/assets/sfx/voices/gameOver.wav',
       '/assets/sfx/voices/gameOver.mp3'
     ]
   }

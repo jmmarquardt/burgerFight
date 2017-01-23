@@ -91,6 +91,22 @@ Crafty.scene('Loading', function(){
 });
 
 Crafty.scene("Main", function () {
+	// draw player cards with initial values
+	$("h1").css('visibility', 'visible');
+	$("h3").css('visibility', 'visible');
+	$(".heartContainer").css('visibility', 'visible');
+
+  $(".heartContainer").empty();
+
+  for (var i=0; i<3; i++) {
+  	$(".heartContainer").append("<img class='img img-responsive healthHeart' src='/assets/img/heart.png'>");
+  }
+  $("#ronald .ammoVal").html("10");
+  $("#king .ammoVal").html("10");
+  $(".powerVal").html("0");
+  $(".bigBurger").css("display", "none");
+
+
 	Crafty.background('url(/assets/img/sprites/ground-1.png)');
 	var occupied = new Array(exports.Game.map_grid.width);
 	Crafty.audio.stop();
@@ -160,14 +176,9 @@ Crafty.scene("Main", function () {
 Crafty.scene('VictoryRonald', function() {
   clearInterval(dropInterval);
   clearInterval(gameMusicLoop);
-  $("#ronald .heartContainer").empty();
-  $("#king .heartContainer").empty();
-  for (var i=0; i<3; i++) {
-  	$(".heartContainer").append("<img class='img img-responsive healthHeart' src='/assets/img/heart.png'>");
-  }
-  $("#ronald .ammoVal").html("10");
-  $("#king .ammoVal").html("10");
-  $(".powerVal").html("0");
+	$(".heartContainer").empty();
+	$("h1").css("visibility", "hidden");
+	$("h3").css("visibility", "hidden");
   $(".bigBurger").css("display", "none");
 	// clear all playing audio like the background music
 	Crafty.audio.stop();
@@ -207,14 +218,9 @@ Crafty.scene('VictoryRonald', function() {
 Crafty.scene('VictoryKing', function() {
   clearInterval(dropInterval);
   clearInterval(gameMusicLoop);
-  $("#ronald .heartContainer").empty();
-  $("#king .heartContainer").empty();
-  for (var i=0; i<3; i++) {
-  	$(".heartContainer").append("<img class='img img-responsive healthHeart' src='/assets/img/heart.png'>");
-  }
-  $("#ronald .ammoVal").html("10");
-  $("#king .ammoVal").html("10");
-  $(".powerVal").html("0");
+	$(".heartContainer").empty();
+  $("h1").css("visibility", "hidden");
+	$("h3").css("visibility", "hidden");
   $(".bigBurger").css("display", "none");
 	// clear all playing audio like the background music
 	Crafty.audio.stop();
@@ -250,4 +256,3 @@ Crafty.scene('VictoryKing', function() {
 }, function() {
 	 	this.unbind('KeyDown', this.restart_game);
 });
-
