@@ -10,12 +10,12 @@
 We have done multiple "eat the burger" web apps academically, and decided to gamify this exercise in order to explore new technologies and incorporate all we have learned.
 
 ## Technologies Used
-* HTML5 Canvas
-* CSS3
+* CraftyJS
 * JavaScript
 * Node and Express server
 * MongoDB
 * React JS
+* D3
 * Piskelapp Sprite sheets
 * TexturePacker Atlas sheets
 * Sound assets created using Audacity or acquired from freesound.org
