@@ -6,7 +6,7 @@
 ### [Play Twilight Burger here on Heroku](https://twilightburger.herokuapp.com/)
 
 ## Screenshot
-![ScreenShot](./public/assets/img/gif/giphy-tumblr.gif)
+![Screenshot](./public/assets/img/gif/twilightBurger.gif)
 
 ## Why?
 We have done multiple "eat the burger" web apps academically, and decided to gamify this exercise in order to explore new technologies and incorporate all we have learned.
