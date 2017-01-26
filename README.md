@@ -1,4 +1,4 @@
-[![NSP Status](https://nodesecurity.io/orgs/codemarq/projects/31a48a12-2de4-481d-9b62-5f08303d1b0c/badge)](https://nodesecurity.io/orgs/codemarq/projects/31a48a12-2de4-481d-9b62-5f08303d1b0c)
+
 
 # The Legend of Ronald: Twilight Burger
 2D HTML5 Canvas game where Ronald McDonald and the Burger King force each other to eat their burgers.
