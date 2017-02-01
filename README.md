@@ -4,6 +4,8 @@
 2D HTML5 Canvas game where Ronald McDonald and the Burger King force each other to eat their burgers.
 
 ### [Play Twilight Burger here on Heroku](https://twilightburger.herokuapp.com/)
+#### Username: test@test.com
+#### Password: Password1
 
 ## Screenshot
 ![Screenshot](./public/assets/img/gif/twilightBurger.gif)
