@@ -30,8 +30,8 @@ We have done multiple "eat the burger" web apps academically, and decided to gam
 
 ## Team Members
 * John-Mike Marquardt [Github](https://github.com/codemarq) | [jmmarquardt.com](https://www.jmmarquardt.com)  |  [LinkedIn]()
-* Mickey A. Ryan  [Github](https://github.com/MARyan87)  |  [Website](https://michael-ryan-portfolio.herokuapp.com/assignment2/index.html)  |  [LinkedIn](https://www.linkedin.com/in/mickey-ryan-597915a0)
-* Ryan Osterman  [Github](https://github.com/ryanosterman10)  |  [Website]()  |  [LinkedIn](https://www.linkedin.com/in/ryanosterman10)
+* Mickey A. Ryan  [Github](https://github.com/MARyan87)  |  [Portfolio](https://michael-ryan-portfolio.herokuapp.com/assignment2/index.html)  |  [LinkedIn](https://www.linkedin.com/in/mickey-ryan-597915a0)
+* Ryan Osterman  [Github](https://github.com/ryanosterman10)  |  [Portfolio](http://ryanosterman.herokuapp.com/)  |  [LinkedIn](https://www.linkedin.com/in/ryanosterman10)
 
 
 ## Copyright & License information
