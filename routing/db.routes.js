@@ -1,7 +1,6 @@
 var mongoose = require("mongoose"),
 	Comments = require("../models/Comments.js"),
 	express  = require("express"),
-	stormpath = require("express-stormpath"),
 	Router   = express.Router();
 
 var options = {
@@ -34,10 +33,6 @@ Router.get("/getDB", function (req, res) {
 
 // page and login routes
 Router.get("/", function (req, res) {
-	res.redirect("/login");
-});
-
-Router.get("/landing", function (req, res) {
 	res.sendFile("landing.html", options);
 });
 
