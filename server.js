@@ -26,26 +26,6 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("./public"));
 app.use(dbRoutes);
 
-// start stormpath and set future routing
-app.use(stormpath.init(app, {
-  application: {
-    href: process.env.STORMPATH_APPLICATION_HREF
-  },
-  website: true,
-  web: {
-    login: {
-      nextUri: '/landing'
-    },
-    logout: {
-      enabled: true,
-      nextUri: '/login'
-    }
-  }
-}));
-
-app.on('stormpath.ready', function() {
-  console.log("Stormpath Ready.");
-	app.listen(process.env.PORT || PORT, function () {
-		console.log("Listening on port ", PORT);
-	});
+app.listen(process.env.PORT || PORT, function () {
+	console.log("Listening on port ", PORT);
 });
