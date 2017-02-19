@@ -1,11 +1,7 @@
-
-
 # The Legend of Ronald: Twilight Burger
 2D HTML5 Canvas game where Ronald McDonald and the Burger King force each other to eat their burgers.
 
 ### [Play Twilight Burger here on Heroku](https://twilightburger.herokuapp.com/)
-#### Username: test@test.com
-#### Password: Password1
 
 ## Screenshot
 ![Screenshot](./public/assets/img/gif/twilightBurger.gif)
@@ -18,12 +14,11 @@ We have done multiple "eat the burger" web apps academically, and decided to gam
 * JavaScript
 * Node and Express server
 * MongoDB
-* React JS
+* ReactJS
 * D3
 * Piskelapp Sprite sheets
 * TexturePacker Atlas sheets
 * Sound assets created using Audacity or acquired from freesound.org
-* Stormpath Authentication
 
 ## Built with
 * Atom and Sublime

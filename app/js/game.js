@@ -186,21 +186,18 @@ Crafty.scene('VictoryRonald', function() {
   Crafty.audio.play("ronaldLaugh",1,1);
 	// draw a new game grid with a  black background and ronald gif
   Crafty.background('#000000 url(/assets/img/gif/ronald_down_throw.gif) no-repeat center center');
-	// Game Over Text
 	Crafty.e('2D, DOM, Text')
-		.text('Player 1 Wins!')
 		.attr({
 			x: 0,
 			y: exports.Game.height()/3,
 			w: exports.Game.width(),
 			h: 100
 		})
-		.css({
-			"text-align": "center",
-			"color": "#ffffff",
-			"weight": "bold"
-		})
+		.text('Player 1 Wins!')
+		.textAlign('center')
+		.textColor("#ffffff")
 		.textFont({
+			weight: "bold",
 			size: "40px",
 			family: 'Press Start 2P'
 		});
@@ -230,24 +227,21 @@ Crafty.scene('VictoryKing', function() {
 	Crafty.background('#000000 url(/assets/img/gif/king_down_walk.gif) no-repeat center center');
 	// Game Over Text
 	Crafty.e('2D, DOM, Text')
-		.text('Player 2 Wins!')
 		.attr({
 			x: 0,
 			y: exports.Game.height()/3,
 			w: exports.Game.width(),
 			h: 100
 		})
-		.css({
-			"text-align": "center",
-			"color": "#ffffff",
-			"weight": "bold"
-		})
+		.text('Player 2 Wins!')
+		.textAlign('center')
+		.textColor("#ffffff")
 		.textFont({
+			weight: "bold",
 			size: "40px",
 			family: 'Press Start 2P'
 		});
 
-  // Crafty.background('url(http://i49.tinypic.com/egd83n.jpg)');
   this.restart_game = this.bind('KeyDown', function(e) {
   	if (e.key == Crafty.keys["ENTER"]) {
   		Crafty.scene('Main');
