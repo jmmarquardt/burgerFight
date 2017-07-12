@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/codemarq/burgerFight#readme",
   "engines": {
-    "node": "4.7.2",
+    "node": "^4.8.4",
     "npm": "4.0.5"
   },
   "dependencies": {
